@@ -34,10 +34,12 @@ class blackjackgame
 		
 		deck.shuffleDeck();
 		
+		// when declaring and initializing an ArrayList specify the type...
 		ArrayList<ArrayList<Card>> lists = new ArrayList<ArrayList<Card>>();
 		for(int i = 0; i < playerNum; i++) 
 		{
 			// Adding Card Array to Array of Arrays I.E Hands
+			// when declaring and initializing an ArrayList specify the type...
     			ArrayList<Card> list = new ArrayList<Card>();
     			lists.add(list);
 			//creating "Hands" out of lists
