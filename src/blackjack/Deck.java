@@ -47,14 +47,15 @@ public class Deck
 		}
 	}
 	
-	public static void main(String args[])
+	void shuffleDeck()
 	{
-		Deck deck1 = new Deck();
-		
-		for(int i=0;i<52;i++)
-		{
-			System.out.println(deck1.theDeck.get(i));
-		}
+		Collections.shuffle(theDeck);
+	}
+	// when passing in an ArrayList specify the type...
+	void dealCard(ArrayList<Card> a)
+	{
+		a.add(theDeck.get(0));
+		a.remove(0);
 	}
 
 }
