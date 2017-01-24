@@ -44,8 +44,14 @@ class blackjackgame {
 
 		for (int i = 0; i < playerNum; i++) {
 			if (i == 0) {
-				for (int f = 0; f < lists.get(0).size(); i++) {
+				for (int f = 0; f < lists.get(0).size(); f++) {
 					System.out.println(lists.get(0).get(f));
+				}
+			}
+			else
+			{
+				for (int f = 0; f < lists.get(i).size(); f++) {
+					System.out.println(lists.get(i).get(f));
 				}
 			}
 		}
