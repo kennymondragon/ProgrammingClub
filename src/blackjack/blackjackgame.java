@@ -47,11 +47,25 @@ class blackjackgame {
 
 		for (int i = 0; i < playerNum; i++) {
 			if (i == 0) {
+<<<<<<< HEAD
 				for (int f = 0; f < players.get(0).size(); i++) {
 					System.out.println(players.get(0).get(f));
 				}
 			}
 		}*/
+=======
+				for (int f = 0; f < lists.get(0).size(); f++) {
+					System.out.println(lists.get(0).get(f));
+				}
+			}
+			else
+			{
+				for (int f = 0; f < lists.get(i).size(); f++) {
+					System.out.println(lists.get(i).get(f));
+				}
+			}
+		}
+>>>>>>> origin/master
 	}
 
 	public static void game(Deck deck, ArrayList<ArrayList<Card>> players) {
