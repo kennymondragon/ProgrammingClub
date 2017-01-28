@@ -24,5 +24,6 @@ class Player
 			//takes in card from dealCard method and adds it to the value of the hand
 			handValue = handValue + a.getValue();
 	}
+	
 
 }

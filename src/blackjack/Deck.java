@@ -1,4 +1,6 @@
-package blackjack;
+//Ben Olson
+//PC
+//1-27-17
 
 import java.util.Collections;
 import java.util.ArrayList;
@@ -32,55 +34,55 @@ public class Deck {
 			;
 			switch (i % 13) {
 			case 0:
-				f = "Two of";
+				f = "Two of ";
 				v = 2;
 				break;
 			case 1:
-				f = "Three of";
+				f = "Three of ";
 				v = 3;
 				break;
 			case 2:
-				f = "Four of";
+				f = "Four of ";
 				v = 4;
 				break;
 			case 3:
-				f = "Five of";
+				f = "Five of ";
 				v = 5;
 				break;
 			case 4:
-				f = "Six of";
+				f = "Six of ";
 				v = 6;
 				break;
 			case 5:
-				f = "Seven of";
+				f = "Seven of ";
 				v = 7;
 				break;
 			case 6:
-				f = "Eight of";
+				f = "Eight of ";
 				v = 8;
 				break;
 			case 7:
-				f = "Nine of";
+				f = "Nine of ";
 				v = 9;
 				break;
 			case 8:
-				f = "Ten of";
+				f = "Ten of ";
 				v = 10;
 				break;
 			case 9:
-				f = "Jack of";
+				f = "Jack of ";
 				v = 10;
 				break;
 			case 10:
-				f = "Queen of";
+				f = "Queen of ";
 				v = 10;
 				break;
 			case 11:
-				f = "King of";
+				f = "King of ";
 				v = 10;
 				break;
 			case 12:
-				f = "Ace of";
+				f = "Ace of ";
 				v = 11;
 				break;
 			default:
@@ -98,8 +100,8 @@ public class Deck {
 	}
 
 	// when passing in an ArrayList specify the type...
-	void dealCard(ArrayList<Card> a) {
-		a.add(theDeck.remove(0)); //Equivalent of pop
+	void dealCard(Player a) {
+		a.hand.add(theDeck.remove(0)); //Equivalent of pop
 	}
 
 }

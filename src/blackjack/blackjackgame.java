@@ -1,4 +1,6 @@
-package blackjack;
+//Ben Olson
+//PC
+//1-27-17
 
 import java.util.Collections;
 import java.util.ArrayList;
@@ -27,9 +29,8 @@ class blackjackgame {
 		deck.shuffleDeck();
 
 		// Creating a list of player hands
-		ArrayList<ArrayList<Card>> players = new ArrayList<ArrayList<Card>>(playerNum);
-		for (int i = 0; i < playerNum; i++)
-			players.add(new ArrayList<Card>());
+		ArrayList<Player> players = new ArrayList<Player>(playerNum);
+		for (int i = 0; i < playerNum; i++){players.add(new Player());}
 
 		System.out.println("");
 		System.out.println("\nThe deck has been shuffled, the players have been readied. Lets Play!");
@@ -37,44 +38,14 @@ class blackjackgame {
 		System.out.println("Good Luck and Have Fun!");
 
 		
-		game(deck, players);
-		/*
+		//game(deck, players);
 		for (int i = 0; i < playerNum; i++) {
 			deck.dealCard(players.get(i));
 		}
-
-		// for i<playernum if i = 0 then print dealer else print player hand 1-4
-
-		for (int i = 0; i < playerNum; i++) {
-			if (i == 0) {
-<<<<<<< HEAD
-				for (int f = 0; f < players.get(0).size(); i++) {
-					System.out.println(players.get(0).get(f));
-				}
-			}
-		}*/
-=======
-				for (int f = 0; f < lists.get(0).size(); f++) {
-					System.out.println(lists.get(0).get(f));
-				}
-			}
-			else
-			{
-				for (int f = 0; f < lists.get(i).size(); f++) {
-					System.out.println(lists.get(i).get(f));
-				}
-			}
+		for(int i=0;i<players.size();i++)
+		{
+			System.out.println(players.get(i).printHand() +" "+ players.get(i).printHand());
 		}
->>>>>>> origin/master
-	}
-
-	public static void game(Deck deck, ArrayList<ArrayList<Card>> players) {
-		//Initial cards everyone gets two
-		for(ArrayList<Card> p : players) {
-			deck.dealCard(p);
-			deck.dealCard(p);
-		}
-		
 	}
 
 }
