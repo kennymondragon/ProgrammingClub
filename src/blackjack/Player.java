@@ -9,6 +9,8 @@ class Player
 {
 	ArrayList<Card> hand = new ArrayList<Card>();
 	private int handValue=0;
+	private int balance = 0;
+	private float bet = 0;
 
 
 	void printHand()

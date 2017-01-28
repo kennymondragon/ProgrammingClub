@@ -101,6 +101,7 @@ public class Deck {
 
 	// when passing in an ArrayList specify the type...
 	void dealCard(Player a) {
+		a.addHandValue(theDeck.get(0)); //adds value while adding card to hand
 		a.hand.add(theDeck.remove(0)); //Equivalent of pop
 	}
 

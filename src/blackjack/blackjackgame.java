@@ -44,7 +44,7 @@ class blackjackgame {
 		}
 		for(int i=0;i<players.size();i++)
 		{
-			System.out.println(players.get(i).printHand() +" "+ players.get(i).printHand());
+			players.get(i).printHand();
 		}
 	}
 
