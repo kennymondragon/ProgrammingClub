@@ -13,7 +13,7 @@ class blackjackgame {
 		int playerNum = 0;
 		Scanner s = new Scanner(System.in);
 		System.out.println("Welcome to BlackJack! How many Players?");
-		playerNum = s.nextInt()+1; //Plus one because the house is always playing
+		playerNum = s.nextInt();
 
 		while (playerNum < 0 || playerNum > 5) {
 			System.out.println("Unusable amount of players! Please input another amount between 0-5!");
@@ -29,8 +29,8 @@ class blackjackgame {
 		deck.shuffleDeck();
 
 		// Creating a list of player hands
-		ArrayList<Player> players = new ArrayList<Player>(playerNum);
-		for (int i = 0; i < playerNum; i++){players.add(new Player());}
+		ArrayList<Player> players = new ArrayList<Player>(playerNum+1);
+		for (int i = 0; i < playerNum+1; i++){players.add(new Player());}
 
 		System.out.println("");
 		System.out.println("\nThe deck has been shuffled, the players have been readied. Lets Play!");
@@ -39,7 +39,7 @@ class blackjackgame {
 
 		
 		//game(deck, players);
-		for (int i = 0; i < playerNum; i++) {
+		for (int i = 0; i < playerNum+1; i++) {
 			deck.dealCard(players.get(i));
 		}
 		for(int i=0;i<players.size();i++)
