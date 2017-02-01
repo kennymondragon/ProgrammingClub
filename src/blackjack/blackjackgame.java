@@ -37,14 +37,28 @@ class blackjackgame {
 		System.out.println("Rules are simple, Play to 21. Go over and you bust, go under and you might lose!");
 		System.out.println("Good Luck and Have Fun!");
 
+		//for loop to run through players and deal cards
 		
-		//game(deck, players);
-		for (int i = 0; i < playerNum+1; i++) {
+		for(int i=0;i<=players.size();i++)
+		{
+			deck.dealCard(players.get(i));
 			deck.dealCard(players.get(i));
 		}
-		for(int i=0;i<players.size();i++)
+		
+		for(int i=players.size();i>=0;i--)
 		{
-			players.get(i).printHand();
+			//for loop cycles through players top down
+			//because dealer is position zero
+
+			//"var" needs to be changed to an actual String var
+			while(var!="Stand"&&(players.get(i).getHandValue()<21))
+			{
+				//Read in S=Stand H=Hit
+				//if hit||H then deal card while/check handValue<21
+				//update screen to show current hand
+				//if handValue>21 then player bust and move on else return to top
+			}
+			//String var needs to be set back to a default after player while loop
 		}
 	}
 
