@@ -40,40 +40,49 @@ class blackjackgame {
 
 		//for loop to run through players and deal cards
 		
-		for(int i=players.size();i>=0;i--)
+		for(int i=players.size()-1;i>=0;i--)
 		{
-			System.out.println(i);
 			deck.dealCard(players.get(i));
 			deck.dealCard(players.get(i));
 		}
 		
-		/*for(int i=players.size();i>=0;i--)
+		System.out.println();
+		System.out.println("Here are the hands currently:");
+		for(int i=players.size()-1;i>=0;i--)
+		{
+			if(i==0)
+			{
+				System.out.println("Dealer:");
+				players.get(0).printHand();
+			}
+			else
+			{
+				System.out.println("Player "+ i + "'s Hand:");
+				players.get(i).printHand();
+			}
+		}
+		
+		for(int i=players.size()-1;i>=0;i--)
 		{
 			//for loop cycles through players top down
 			//because dealer is position zero
 
 			//"var" needs to be changed to an actual String var
-			while(var != "stand" || var!= "bust")
+			cmd = " ";
+			System.out.println();
+			System.out.println("Player "+ i +" Please select either Hit or Stand by typing H or S.");
+			cmd = s.next();
+			while(cmd != "stand" || cmd != "bust")
 			{
-				cmd = s.nextLine();
+				System.out.println("Im Making it here 2");
 				
 				switch(cmd)
 				{
-					// Feel free to do it the wrong ben...
-					case 's':
-						var = "stand";
-					break;
-					case 'h':
-						deck.dealCard(players.get(i));
-					break;
-					case 'S':
-						var = "stand";
-					break;
-					case 'H':
-						deck.dealCard(players.get(i));
-					break;
-						
-						
+					// Feel free to do it wrong ben...
+					case "s": cmd = "stand"; break;
+					case "h": System.out.println("Im Making it here 1");if(players.get(i).getHandValue()>=21){cmd = "bust";break;}else{deck.dealCard(players.get(i)); break;}
+					case "S": cmd = "stand"; break;
+					case "H": System.out.println("Im Making it here 1");if(players.get(i).getHandValue()>=21){cmd = "bust";break;}else{deck.dealCard(players.get(i)); break;}
 				}
 				//Read in S=Stand H=Hit
 				//if hit||H then deal card while/check handValue<21
@@ -81,7 +90,21 @@ class blackjackgame {
 				//if handValue>21 then player bust and move on else return to top
 			}
 			//String var needs to be set back to a default after player while loop
-		}*/
+			System.out.println("Here are the hands currently:");
+			for(int f=players.size()-1;f>=0;f--)
+			{
+				if(f==0)
+				{
+					System.out.println("Dealer:");
+					players.get(0).printHand();
+				}
+				else
+				{
+					System.out.println("Player "+ f + "'s Hand:");
+					players.get(f).printHand();
+				}
+			}
+		}
 	}
 
 }
