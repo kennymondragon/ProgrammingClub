@@ -14,6 +14,7 @@ class blackjackgame {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Welcome to BlackJack! How many Players?");
 		playerNum = s.nextInt();
+		String cmd = " "; // <-- Kenny did dis
 
 		while (playerNum <= 0 || playerNum > 5) {
 			System.out.println("Unusable amount of players! Please input another amount between 0-5!");
@@ -52,8 +53,28 @@ class blackjackgame {
 			//because dealer is position zero
 
 			//"var" needs to be changed to an actual String var
-			while(var!="Stand"&&(players.get(i).getHandValue()<21))
+			while(var != "stand" || var!= "bust")
 			{
+				cmd = s.nextLine();
+				
+				switch(cmd)
+				{
+					// Feel free to do it the wrong ben...
+					case 's':
+						var = "stand";
+					break;
+					case 'h':
+						deck.dealCard(players.get(i));
+					break;
+					case 'S':
+						var = "stand";
+					break;
+					case 'H':
+						deck.dealCard(players.get(i));
+					break;
+						
+						
+				}
 				//Read in S=Stand H=Hit
 				//if hit||H then deal card while/check handValue<21
 				//update screen to show current hand
