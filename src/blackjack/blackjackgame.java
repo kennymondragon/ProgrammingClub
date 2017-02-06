@@ -15,7 +15,7 @@ class blackjackgame {
 		System.out.println("Welcome to BlackJack! How many Players?");
 		playerNum = s.nextInt();
 
-		while (playerNum < 0 || playerNum > 5) {
+		while (playerNum <= 0 || playerNum > 5) {
 			System.out.println("Unusable amount of players! Please input another amount between 0-5!");
 			playerNum = s.nextInt();
 			// quick check for within range
@@ -29,8 +29,8 @@ class blackjackgame {
 		deck.shuffleDeck();
 
 		// Creating a list of player hands
-		ArrayList<Player> players = new ArrayList<Player>(playerNum+1);
-		for (int i = 0; i < playerNum+1; i++){players.add(new Player());}
+		ArrayList<Player> players = new ArrayList<Player>((playerNum));
+		for (int i = 0; i <=(playerNum); i++){players.add(new Player());}
 
 		System.out.println("");
 		System.out.println("\nThe deck has been shuffled, the players have been readied. Lets Play!");
@@ -39,13 +39,14 @@ class blackjackgame {
 
 		//for loop to run through players and deal cards
 		
-		for(int i=0;i<=players.size();i++)
+		for(int i=players.size();i>=0;i--)
 		{
+			System.out.println(i);
 			deck.dealCard(players.get(i));
 			deck.dealCard(players.get(i));
 		}
 		
-		for(int i=players.size();i>=0;i--)
+		/*for(int i=players.size();i>=0;i--)
 		{
 			//for loop cycles through players top down
 			//because dealer is position zero
@@ -59,7 +60,7 @@ class blackjackgame {
 				//if handValue>21 then player bust and move on else return to top
 			}
 			//String var needs to be set back to a default after player while loop
-		}
+		}*/
 	}
 
 }
