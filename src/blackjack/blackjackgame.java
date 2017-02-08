@@ -62,47 +62,36 @@ class blackjackgame {
 			}
 		}
 		
-		for(int i=players.size()-1;i>=0;i--)
+		for(int i=players.size()-1;i>0;i--)
 		{
 			//for loop cycles through players top down
 			//because dealer is position zero
 
 			cmd = " ";
-			System.out.println();
-			System.out.println("Player "+ i +" Please select either Hit or Stand by typing H or S.");
-			System.out.println("Player "+i+"'s Hand valuse is: " + players.get(i).getHandValue());
-			cmd = s.next();
-			while(!cmd.equals("stand") && !cmd.equals("bust"))
+			//System.out.println();
+			//System.out.println("Player "+ i +" Please select either Hit or Stand by typing H or S.");
+			//System.out.println("Player "+i+"'s Hand valuse is: " + players.get(i).getHandValue());
+			//cmd = s.next();
+			while((!cmd.equals("stand")) && (!cmd.equals("bust")))
 			{
-				
+				System.out.println();
+				System.out.println("Player "+ i +" Please select either Hit or Stand by typing H or S.");
+				cmd = s.next();
 				switch(cmd)
 				{
 					// Feel free to do it wrong ben...
 					case "s": cmd = "stand"; break;
-					case "h": if((players.get(i).getHandValue())>=21){cmd = "bust";break;}else{deck.dealCard(players.get(i)); break;}
+					case "h": deck.dealCard(players.get(i));if(players.get(i).getHandValue()>21){cmd="bust";}; break;
 					case "S": cmd = "stand"; break;
-					case "H": if(players.get(i).getHandValue()>=21){cmd = "bust";break;}else{deck.dealCard(players.get(i)); break;}
+					case "H": deck.dealCard(players.get(i));if(players.get(i).getHandValue()>21){cmd="bust";}; break;
 				}
-				//Read in S=Stand H=Hit
-				//if hit||H then deal card while/check handValue<21
-				//update screen to show current hand
-				//if handValue>21 then player bust and move on else return to top
+				
+				System.out.println("Player "+i+"'s Hand valuse is: " + players.get(i).getHandValue());
+					
 			}
 			//String var needs to be set back to a default after player while loop
-			System.out.println("Here are the hands currently:");
-			for(int f=players.size()-1;f>=0;f--)
-			{
-				if(f==0)
-				{
-					System.out.println("Dealer:");
-					players.get(0).printHand();
-				}
-				else
-				{
-					System.out.println("Player "+ f + "'s Hand:");
-					players.get(f).printHand();
-				}
-			}
+			System.out.println("Player "+i+"'s Hand is:");
+			players.get(i).printHand();
 			cmd = " ";
 		}
 	}
