@@ -67,22 +67,21 @@ class blackjackgame {
 			//for loop cycles through players top down
 			//because dealer is position zero
 
-			//"var" needs to be changed to an actual String var
 			cmd = " ";
 			System.out.println();
 			System.out.println("Player "+ i +" Please select either Hit or Stand by typing H or S.");
+			System.out.println("Player "+i+"'s Hand valuse is: " + players.get(i).getHandValue());
 			cmd = s.next();
-			while(cmd != "stand" || cmd != "bust")
+			while(!cmd.equals("stand") && !cmd.equals("bust"))
 			{
-				System.out.println("Im Making it here 2");
 				
 				switch(cmd)
 				{
 					// Feel free to do it wrong ben...
 					case "s": cmd = "stand"; break;
-					case "h": System.out.println("Im Making it here 1");if(players.get(i).getHandValue()>=21){cmd = "bust";break;}else{deck.dealCard(players.get(i)); break;}
+					case "h": if((players.get(i).getHandValue())>=21){cmd = "bust";break;}else{deck.dealCard(players.get(i)); break;}
 					case "S": cmd = "stand"; break;
-					case "H": System.out.println("Im Making it here 1");if(players.get(i).getHandValue()>=21){cmd = "bust";break;}else{deck.dealCard(players.get(i)); break;}
+					case "H": if(players.get(i).getHandValue()>=21){cmd = "bust";break;}else{deck.dealCard(players.get(i)); break;}
 				}
 				//Read in S=Stand H=Hit
 				//if hit||H then deal card while/check handValue<21
@@ -104,6 +103,7 @@ class blackjackgame {
 					players.get(f).printHand();
 				}
 			}
+			cmd = " ";
 		}
 	}
 
