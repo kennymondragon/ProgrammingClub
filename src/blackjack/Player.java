@@ -62,4 +62,3 @@ class Player
 		isOut = !isOut;
 	}
 
-}

@@ -98,6 +98,10 @@ class blackjackgame
 						{
 							System.out.println("You Bust!");
 							cmd="bust";
+<<<<<<< HEAD
+=======
+							players.get(i).set_isOut(true);
+>>>>>>> origin/master
 						}; 
 						break;
 						
@@ -111,6 +115,10 @@ class blackjackgame
 						{
 							System.out.println("You Bust!");
 							cmd="bust";
+<<<<<<< HEAD
+=======
+							players.get(i).set_isOut(true);
+>>>>>>> origin/master
 						}; 
 						break;
 					default:
@@ -129,6 +137,7 @@ class blackjackgame
 		// Check players for winner...
 		for(int i=players.size()-1;i>0;i--)
 		{
+<<<<<<< HEAD
 			Player winner = null;
 			
 			if(!players.get(i).get_isOut())
@@ -138,6 +147,15 @@ class blackjackgame
 						winner = players.get(i);
 				else
 					winner = players.get(i); //pls fix <----
+=======
+			ArrayList<int> winners;
+			if(!players.get(i).get_isOut())
+			{
+				if(players.get(i).getHandValue() > players.get(0).getHandValue())
+					winners.add(i);
+				else if(players.get(i).getHandValue() == players.get(0).getHandValue())
+					// if player ties with dealer bet is returned...
+>>>>>>> origin/master
 				
 			}
 		}
