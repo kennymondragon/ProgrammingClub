@@ -61,4 +61,4 @@ class Player
 	{
 		isOut = !isOut;
 	}
-
+}
