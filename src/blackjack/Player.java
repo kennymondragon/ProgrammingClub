@@ -2,6 +2,7 @@
 //PC
 //1-24-17
 
+package blackjack;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,7 @@ class Player
 	private int handValue=0;
 	private float balance = 0;
 	private float bet = 0;
+	private boolean isOut = false;
 
 
 	void printHand()
@@ -38,6 +40,10 @@ class Player
 	{
 		return bet;
 	}
+	boolean get_isOut()
+	{
+		return isOut;
+	}
 	void setBet(float a)
 	{
 		bet = a;
@@ -46,6 +52,14 @@ class Player
 	{
 		balance = a;
 	}
+	void set_isOut(boolean newbool)
+	{
+		isOut = newbool;
+	}
 	
+	void flip_isout(boolean newbool)
+	{
+		isOut = !isOut;
+	}
 
 }

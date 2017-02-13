@@ -1,7 +1,7 @@
 //B Olson
 //PC
 //1-31-17
-
+package blackjack;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -34,7 +34,7 @@ class GameServer
 			case 1: blackjackgame.main(args);
 		};
 			
-		
+		s.close();
 	}
 }
 		

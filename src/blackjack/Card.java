@@ -1,6 +1,8 @@
 //Ben Olson
 //PC
 
+package blackjack;
+
 public class Card 
 {
 	private int value=0;
