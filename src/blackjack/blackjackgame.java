@@ -2,7 +2,7 @@
 //PC
 //1-27-17
 
-package blackjack;
+//package blackjack;
 
 //import java.util.Collections;
 import java.util.ArrayList;
@@ -88,11 +88,8 @@ class blackjackgame
 				switch(cmd)
 				{
 					// Feel free to do it wrong ben...
-					case "s": 
-						cmd = "stand"; 
-						break;
-						
-					case "h": // hit
+					case "s":	cmd = "stand"; break;
+					case "h":
 						deck.dealCard(players.get(i));
 						if(players.get(i).getHandValue()>21)
 						{
@@ -102,10 +99,7 @@ class blackjackgame
 						}; 
 						break;
 						
-					case "S": 
-						cmd = "stand"; 
-						break;
-						
+					case "S": 	cmd = "stand"; break;
 					case "H": 
 						deck.dealCard(players.get(i));
 						if(players.get(i).getHandValue()>21)
@@ -128,19 +122,47 @@ class blackjackgame
 			players.get(i).printHand();
 			cmd = " ";
 		}
+		
+		
+		System.out.println(" ");
+		System.out.println("The players have all played, now its the dealers turn...");
+		System.out.println(" ");
+		System.out.println("Dealer's Hand is:");
+		while(players.get(0).getHandValue()<=18)
+		{
+			deck.dealCard(players.get(0)); //deal a card to the dealer
+			players.get(0).printHand(); //show the card
+
+		}
+		System.out.println("Dealer's hand value is: " + players.get(0).getHandValue());
+
+
 		// Check players for winner...
+		ArrayList<String> winners = new ArrayList<String>();
+		ArrayList<String> tie = new ArrayList<String>();
+		ArrayList<String> losers = new ArrayList<String>();
 		for(int i=players.size()-1;i>0;i--)
 		{
-			ArrayList<int> winners;
 			if(!players.get(i).get_isOut())
 			{
 				if(players.get(i).getHandValue() > players.get(0).getHandValue())
-					winners.add(i);
+					winners.add("Player "+ i + " ");
 				else if(players.get(i).getHandValue() == players.get(0).getHandValue())
-					// if player ties with dealer bet is returned...
+					tie.add("Player "+ i + " ");// if player ties with dealer bet is returned...
+				else if(players.get(i).getHandValue() < players.get(0).getHandValue())
+					losers.add("Player "+ i + " ");
+					
 			}
 		}
 		
+		System.out.println("Winners are: ");
+		for(ArrayList<String> r : winners){System.out.println(r);} // try to iterate through the arraylists
+		System.out.println("Ties are: ");
+		for(ArrayList<String> r : tie){System.out.println(r);}
+		System.out.println("Losers are: ");
+		for(ArrayList<String> r : losers){System.out.println(r);}
+
+
 		s.close();
 	}
 
