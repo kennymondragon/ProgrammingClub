@@ -5,9 +5,11 @@
 //package blackjack;
 
 //import java.util.Collections;
+package blackjack;
 import java.util.ArrayList;
 import java.util.Scanner;
 //import java.util.concurrent.TimeUnit;
+
 
 class blackjackgame 
 {
@@ -47,6 +49,155 @@ class blackjackgame
 		System.out.println("Good Luck and Have Fun!");
 
 		//for loop to run through players and deal cards
+		
+		for(int i = players.size()-1; i>=0; i--)
+		{
+			deck.dealCard(players.get(i));
+			deck.dealCard(players.get(i));
+		}
+		
+		System.out.println();
+		System.out.println("Here are the hands currently:");
+		for(int i=players.size()-1;i>=0;i--)
+		{
+			if(i==0)
+			{
+				System.out.println("Dealer:");
+				players.get(0).printHand();
+			}
+			else
+			{
+				System.out.println("Player "+ i + "'s Hand:");
+				players.get(i).printHand();
+			}
+		}
+		
+		for(int i=players.size()-1;i>0;i--)
+		{
+			//for loop cycles through players top down
+			//because dealer is position zero
+
+			cmd = " ";
+			//System.out.println();
+			//System.out.println("Player "+ i +" Please select either Hit or Stand by typing H or S.");
+			//System.out.println("Player "+i+"'s Hand valuse is: " + players.get(i).getHandValue());
+			//cmd = s.next();
+			while((!cmd.equals("stand")) && (!cmd.equals("bust")))
+			{
+				System.out.println();
+				System.out.println("Player "+ i +" Please select either Hit or Stand by typing H or S.");
+				cmd = s.next();
+				switch(cmd)
+				{
+					// Feel free to do it wrong ben...
+					case "s":	cmd = "stand"; break;
+					case "h":
+						deck.dealCard(players.get(i));
+						if(players.get(i).getHandValue()>21)
+						{
+							System.out.println("You Bust!");
+							cmd="bust";
+							players.get(i).set_isOut(true);
+						}; 
+						break;
+						
+					case "S": 	cmd = "stand"; break;
+					case "H": 
+						deck.dealCard(players.get(i));
+						if(players.get(i).get_isOut())
+						{
+							System.out.println("You Bust!");
+							cmd="bust";
+						}; 
+						break;
+					default:
+						System.out.println("Invaild input...");
+						break;
+				}
+				
+				System.out.println("Player "+i+"'s Hand valuse is: " + players.get(i).getHandValue());
+					
+			}
+			//String var needs to be set back to a default after player while loop
+			System.out.println("Player "+i+"'s Hand is:");
+			players.get(i).printHand();
+			cmd = " ";
+		}
+		
+		
+		System.out.println(" ");
+		System.out.println("The players have all played, now its the dealers turn...");
+		System.out.println(" ");
+		System.out.println("Dealer's Hand is:");
+		while(players.get(0).getHandValue()<18)
+		{
+			deck.dealCard(players.get(0)); //deal a card to the dealer
+			players.get(0).printHand(); //show the card
+			
+
+		}
+		System.out.println("Dealer's hand value is: " + players.get(0).getHandValue());
+
+
+		// Check players for winner...
+		ArrayList<String> winners = new ArrayList<String>();
+		ArrayList<String> tie = new ArrayList<String>();
+		ArrayList<String> losers = new ArrayList<String>();
+		
+		for(int i=players.size()-1;i>0;i--)
+		{
+			if(!players.get(i).get_isOut())
+			{
+				if(players.get(0).get_isOut())
+					winners.add(("Player "+ i + " "));
+				else if(players.get(i).getHandValue() > players.get(0).getHandValue())
+					winners.add(("Player "+ i + " "));
+				else if(players.get(i).getHandValue() == players.get(0).getHandValue())
+					tie.add(("Player "+ i + " "));// if player ties with dealer bet is returned...
+				else if(players.get(i).getHandValue() < players.get(0).getHandValue())
+					losers.add(("Player "+ i + " "));
+					
+			}
+			else 
+			{
+				losers.add(("Player "+ i + " "));
+			}
+		}
+		
+		System.out.println("");
+		System.out.println("Winners are: ");
+		for(String r : winners){System.out.println(r);} // try to iterate through the arraylists
+		System.out.println("");
+		System.out.println("Ties are: ");
+		for(String r : tie){System.out.println(r);}
+		System.out.println("");
+		System.out.println("Losers are: ");
+		for(String r : losers){System.out.println(r);}
+
+
+		s.close();
+	}
+	
+
+	static void Game()
+	{
+		String[] args= new String[6];
+		String Q = "";
+		boolean gameStatus=true;
+		Scanner s = new Scanner(System.in);
+		while(gameStatus == true)
+		{
+			blackjackgame.main(args);
+			
+			System.out.println("Would you like to play again?");
+			Q=s.next();
+			if(Q.equals("no")||Q.equals("n")||Q.equals("NO")||Q.equals("No"))
+				gameStatus = false;
+		}
+	}	
+
+}
+
 		
 		for(int i = players.size()-1; i>=0; i--)
 		{
