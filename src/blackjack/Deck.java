@@ -3,6 +3,7 @@
 //1-27-17
 
 //package blackjack;
+package blackjack;
 import java.util.Collections;
 import java.util.ArrayList;
 
@@ -103,6 +104,8 @@ public class Deck {
 	// when passing in an ArrayList specify the type...
 	void dealCard(Player a) {
 		a.addHandValue(theDeck.get(0)); //adds value while adding card to hand
+		if (a.getHandValue() > 21)
+			a.flip_isout(true);
 		a.hand.add(theDeck.remove(0)); //Equivalent of pop
 	}
 
