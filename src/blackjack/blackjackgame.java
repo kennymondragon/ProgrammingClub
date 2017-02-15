@@ -128,7 +128,7 @@ class blackjackgame
 		System.out.println("The players have all played, now its the dealers turn...");
 		System.out.println(" ");
 		System.out.println("Dealer's Hand is:");
-		while(players.get(0).getHandValue()<=18)
+		while(players.get(0).getHandValue()<18)
 		{
 			deck.dealCard(players.get(0)); //deal a card to the dealer
 			players.get(0).printHand(); //show the card
@@ -143,27 +143,48 @@ class blackjackgame
 		ArrayList<String> losers = new ArrayList<String>();
 		for(int i=players.size()-1;i>0;i--)
 		{
-			if(!players.get(i).get_isOut())
+			if(players.get(i).get_isOut())
 			{
 				if(players.get(i).getHandValue() > players.get(0).getHandValue())
-					winners.add("Player "+ i + " ");
+					winners.add(("Player "+ i + " "));
 				else if(players.get(i).getHandValue() == players.get(0).getHandValue())
-					tie.add("Player "+ i + " ");// if player ties with dealer bet is returned...
+					tie.add(("Player "+ i + " "));// if player ties with dealer bet is returned...
 				else if(players.get(i).getHandValue() < players.get(0).getHandValue())
-					losers.add("Player "+ i + " ");
+					losers.add(("Player "+ i + " "));
 					
 			}
 		}
 		
+		System.out.println("");
 		System.out.println("Winners are: ");
-		for(ArrayList<String> r : winners){System.out.println(r);} // try to iterate through the arraylists
+		for(String r : winners){System.out.println(r);} // try to iterate through the arraylists
+		System.out.println("");
 		System.out.println("Ties are: ");
-		for(ArrayList<String> r : tie){System.out.println(r);}
+		for(String r : tie){System.out.println(r);}
+		System.out.println("");
 		System.out.println("Losers are: ");
-		for(ArrayList<String> r : losers){System.out.println(r);}
+		for(String r : losers){System.out.println(r);}
 
 
 		s.close();
 	}
+	
+
+	void Game()
+	{
+		String[] args= new String[6];
+		String Q = "";
+		boolean gameStatus=true;
+		Scanner s = new Scanner(System.in);
+		while(gameStatus == true)
+		{
+			blackjackgame.main(args);
+			
+			System.out.println("Would you like to play again?");
+			Q=s.next();
+			if(Q.equals("no")||Q.equals("n")||Q.equals("NO")||Q.equals("No"))
+				gameStatus = false;
+		}
+	}	
 
 }
