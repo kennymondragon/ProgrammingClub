@@ -143,7 +143,7 @@ class blackjackgame
 		ArrayList<String> losers = new ArrayList<String>();
 		for(int i=players.size()-1;i>0;i--)
 		{
-			if(players.get(i).get_isOut())
+			if(!players.get(i).get_isOut())
 			{
 				if(players.get(i).getHandValue() > players.get(0).getHandValue())
 					winners.add(("Player "+ i + " "));
@@ -152,6 +152,10 @@ class blackjackgame
 				else if(players.get(i).getHandValue() < players.get(0).getHandValue())
 					losers.add(("Player "+ i + " "));
 					
+			}
+			else 
+			{
+				losers.add(("Player "+ i + " "));
 			}
 		}
 		
