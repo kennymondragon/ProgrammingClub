@@ -30,7 +30,6 @@ class GameServer
 		choice = s.nextInt();
 		switch(choice)
 		{
-		
 			case 1: blackjackgame.Game();
 		};
 			
