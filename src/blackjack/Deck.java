@@ -35,56 +35,56 @@ public class Deck {
 			;
 			switch (i % 13) {
 			case 0:
+				f = "Ace of ";
+				v = 11;
+				break;
+			case 1:
 				f = "Two of ";
 				v = 2;
 				break;
-			case 1:
+			case 2:
 				f = "Three of ";
 				v = 3;
 				break;
-			case 2:
+			case 3:
 				f = "Four of ";
 				v = 4;
 				break;
-			case 3:
+			case 4:
 				f = "Five of ";
 				v = 5;
 				break;
-			case 4:
+			case 5:
 				f = "Six of ";
 				v = 6;
 				break;
-			case 5:
+			case 6:
 				f = "Seven of ";
 				v = 7;
 				break;
-			case 6:
+			case 7:
 				f = "Eight of ";
 				v = 8;
 				break;
-			case 7:
+			case 8:
 				f = "Nine of ";
 				v = 9;
 				break;
-			case 8:
+			case 9:
 				f = "Ten of ";
 				v = 10;
 				break;
-			case 9:
+			case 10:
 				f = "Jack of ";
 				v = 10;
 				break;
-			case 10:
+			case 11:
 				f = "Queen of ";
 				v = 10;
 				break;
-			case 11:
+			case 12:
 				f = "King of ";
 				v = 10;
-				break;
-			case 12:
-				f = "Ace of ";
-				v = 11;
 				break;
 			default:
 				f = "Something broke in rank switch";
@@ -106,6 +106,13 @@ public class Deck {
 		if (a.getHandValue() > 21)
 			a.flip_isout(true);
 		a.hand.add(theDeck.remove(0)); //Equivalent of pop
+	}
+	void display()
+	{
+		for(int i=0;i<52;i++)
+		{
+			System.out.println(theDeck.get(i));
+		}
 	}
 
 }

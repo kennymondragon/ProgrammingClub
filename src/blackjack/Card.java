@@ -20,6 +20,10 @@ public class Card
 	{
 		return value;
 	}
+	public void setValue(int a)
+	{
+		value = a;
+	}
 	public String getSuit()
 	{
 		return suit;
