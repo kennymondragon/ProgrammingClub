@@ -40,7 +40,7 @@ class Player
 	{
 		return bet;
 	}
-	boolean get_isOut()
+	boolean getisOut()
 	{
 		return isOut;
 	}
@@ -52,12 +52,12 @@ class Player
 	{
 		balance = a;
 	}
-	void set_isOut(boolean newbool)
+	void setisOut(boolean newbool)
 	{
 		isOut = newbool;
 	}
 	
-	void flip_isout(boolean newbool)
+	void flipisOut()
 	{
 		isOut = !isOut;
 	}

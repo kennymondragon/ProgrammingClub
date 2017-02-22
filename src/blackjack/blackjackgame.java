@@ -85,27 +85,22 @@ class blackjackgame
 				cmd = s.next();
 				switch(cmd)
 				{
-					// Feel free to do it wrong ben...
-					case "s":	cmd = "stand"; break;
-					case "h":
-						deck.dealCard(players.get(i));
-						if(players.get(i).getHandValue()>21)
-						{
-							System.out.println("You Bust!");
-							cmd="bust";
-							players.get(i).set_isOut(true);
-						}; 
+					case "s":	
+						cmd = "stand"; 
 						break;
 						
-					case "S": 	cmd = "stand"; break;
-					case "H": 
-						deck.dealCard(players.get(i));
-						if(players.get(i).get_isOut())
-						{
-							System.out.println("You Bust!");
-							cmd="bust";
-						}; 
+					case "h":
+						cmd = dealCard(deck, players.get(i));
 						break;
+						
+					case "S": 	
+						cmd = "stand"; 
+						break;
+						
+					case "H": 
+						cmd = dealCard(deck, players.get(i));
+						break;
+						
 					default:
 						System.out.println("Invaild input...");
 						break;
@@ -127,9 +122,9 @@ class blackjackgame
 		System.out.println("Dealer's Hand is:");
 		while(players.get(0).getHandValue()<18)
 		{
-			deck.dealCard(players.get(0)); //deal a card to the dealer
+			//deck.dealCard(players.get(0)); //deal a card to the dealer
 			//players.get(0).printHand(); //show the card
-			
+			dealCard(deck, players.get(0));
 
 		}
 		players.get(0).printHand(); //show the card
@@ -143,9 +138,9 @@ class blackjackgame
 		
 		for(int i=players.size()-1;i>0;i--)
 		{
-			if(!players.get(i).get_isOut())
+			if(!players.get(i).getisOut())
 			{
-				if(players.get(0).get_isOut())
+				if(players.get(0).getisOut())
 					winners.add(("Player "+ i + " "));
 				else if(players.get(i).getHandValue() > players.get(0).getHandValue())
 					winners.add(("Player "+ i + " "));
@@ -163,18 +158,43 @@ class blackjackgame
 		
 		System.out.println("");
 		System.out.println("Winners are: ");
-		for(String r : winners){System.out.println(r);} // try to iterate through the arraylists
+		
+		for(String r : winners)
+		{
+			System.out.println(r);
+		} // try to iterate through the arraylists
+		
 		System.out.println("");
 		System.out.println("Ties are: ");
-		for(String r : tie){System.out.println(r);}
+		
+		for(String r : tie)
+		{
+			System.out.println(r);
+		}
+		
 		System.out.println("");
 		System.out.println("Losers are: ");
-		for(String r : losers){System.out.println(r);}
-
-
+		
+		for(String r : losers)
+		{
+			System.out.println(r);
+		}
+		
+		s.close();
 	}
 	
-
+	public static String dealCard(Deck deck, Player p)
+	{
+		deck.dealCard(p);
+		if(p.getHandValue()>21)
+		{
+			System.out.println("You Bust!");
+			p.setisOut(true);
+			return "bust";
+		}
+		return " "; 
+	}
+	
 	static void Game()
 	{
 		String[] args= new String[6];
