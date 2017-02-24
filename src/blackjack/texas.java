@@ -1,8 +1,31 @@
+//Programming Club 2017
+//texas holdem style poker game
+
+import java.util.Scanner;
+import java.util.Collections.ArrayList;
+import java.util.Collections;
+
+
 class texas
 {
-	void game()
+	static void Game()
 	{
-	}
+		String[] args= new String[6];
+		String Q = " ";
+		boolean gameStatus=true;
+		Scanner s = new Scanner(System.in);
+		while(gameStatus == true)
+		{
+			texas.main(args);
+			
+			System.out.println("Would you like to play again?");
+			System.out.println();
+			Q = s.next();
+			if(Q.equals("no")||Q.equals("n")||Q.equals("NO")||Q.equals("No"))
+				gameStatus = false;
+		}
+		s.close();
+	}	
 	
 	public static void main(String[] args)
 	{
@@ -12,6 +35,10 @@ class texas
 		
 		deck.display();
 		
+		for(int i=0;i<52;i++)
+		{
+			System.out.println(deck.theDeck.get(i).getValue());
+		}
 		
 	}
 	
@@ -20,17 +47,21 @@ class texas
 	{
 		for(int i=0;i<52;i++)
 		{
-			if(((i%10)==1)&& d.theDeck.get(i).getValue()!=11)
+			if((i%13)==10)
 			{
 				d.theDeck.get(i).setValue(11);
 			}
-			else if(((i%10)==2)&& d.theDeck.get(i).getValue()!=2)
+			else if((i%13)==11)
 			{
 				d.theDeck.get(i).setValue(12);
 			}
-			else if(((i%10)==3)&& d.theDeck.get(i).getValue()!=3)
+			else if((i%13)==12)
 			{
 				d.theDeck.get(i).setValue(13);
+			}
+			else if((i%13)==0)
+			{
+				d.theDeck.get(i).setValue(1);
 			}
 		}
 	}
