@@ -179,8 +179,6 @@ class blackjackgame
 		{
 			System.out.println(r);
 		}
-		
-		s.close();
 	}
 	
 	public static String dealCard(Deck deck, Player p)
