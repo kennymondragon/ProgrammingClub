@@ -2,7 +2,7 @@
 //texas holdem style poker game
 
 import java.util.Scanner;
-import java.util.Collections.ArrayList;
+import java.util.ArrayList;
 import java.util.Collections;
 
 
@@ -22,25 +22,32 @@ class texas
 			System.out.println();
 			Q = s.next();
 			if(Q.equals("no")||Q.equals("n")||Q.equals("NO")||Q.equals("No"))
-				gameStatus = false;
+				gameStatus = false;GameServer.main(args);
 		}
+		
 		s.close();
 	}	
 	
 	public static void main(String[] args)
 	{
+		ArrayList community = new ArrayList(); //community cards that people compare their hand to
 		Deck deck = new Deck();
 		
-		updateDeck(deck);
-		
-		deck.display();
-		
-		for(int i=0;i<52;i++)
-		{
-			System.out.println(deck.theDeck.get(i).getValue());
-		}
+		updateDeck(deck); //update card values to be able to play the game
 		
 	}
+	
+	static void pair(Player a,ArrayList b)
+	{
+		//take in both player hand and community array
+		//add the two together and check whole array for a pair of cards that match
+	}
+	static void TwoPair(Player a,ArrayList b)
+	{
+		//take in both player hand and community array
+		//add the two together and check whole array for two pairs of cards that match	
+	}
+	
 	
 	
 	static void updateDeck(Deck d)
@@ -71,7 +78,7 @@ class texas
 //initialize deck
 //reset card values so that A=1 K=13 Q=12 J=11
 // suit values should be 0-3
-// Arraylist of poker hands, sorted to be greatest to least top down
+// Functions that check for hands, straight, pair, 2pair etc... 
 /* game is played by the players each getting two cards, 
 the two players to the left of the dealer put up the big and small blinds
 the players bet, the dealer then deals 3 as community, 

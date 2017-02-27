@@ -17,6 +17,7 @@ class GameServer
 		int choice = 0;
 		ArrayList<String> games = new ArrayList<String>();
 		games.add("Blackjack");
+		games.add("Texas Hold-em");
 		System.out.println("Hello, Welcome the PC Game Server!");
 		System.out.println("Please choose from the following games one which you would like to play.");
 		System.out.println("");
@@ -31,6 +32,7 @@ class GameServer
 		switch(choice)
 		{
 			case 1: blackjackgame.Game();
+			case 2: texas.Game();
 		};
 			
 		s.close();

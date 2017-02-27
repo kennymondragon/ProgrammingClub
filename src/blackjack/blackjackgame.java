@@ -207,7 +207,7 @@ class blackjackgame
 			System.out.println();
 			Q = s.next();
 			if(Q.equals("no")||Q.equals("n")||Q.equals("NO")||Q.equals("No"))
-				gameStatus = false;
+				gameStatus = false;GameServer.main(args);
 		}
 		s.close();
 	}	
