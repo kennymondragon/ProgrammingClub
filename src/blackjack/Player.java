@@ -3,7 +3,6 @@
 //1-24-17
 
 //package blackjack;
-
 import java.util.ArrayList;
 
 class Player
