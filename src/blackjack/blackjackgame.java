@@ -7,7 +7,6 @@
 //import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Scanner;
-//import java.util.concurrent.TimeUnit;
 
 
 class blackjackgame 
@@ -207,7 +206,10 @@ class blackjackgame
 			System.out.println();
 			Q = s.next();
 			if(Q.equals("no")||Q.equals("n")||Q.equals("NO")||Q.equals("No"))
-				gameStatus = false;GameServer.main(args);
+			{
+				gameStatus = false;
+				GameServer.main(args);
+			}
 		}
 		s.close();
 	}	

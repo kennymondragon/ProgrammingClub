@@ -4,6 +4,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Arrays;
 
 
 class texas
@@ -22,7 +23,10 @@ class texas
 			System.out.println();
 			Q = s.next();
 			if(Q.equals("no")||Q.equals("n")||Q.equals("NO")||Q.equals("No"))
-				gameStatus = false;GameServer.main(args);
+			{
+				gameStatus = false;
+				GameServer.main(args);
+			}
 		}
 		
 		s.close();
@@ -30,22 +34,67 @@ class texas
 	
 	public static void main(String[] args)
 	{
-		ArrayList community = new ArrayList(); //community cards that people compare their hand to
+		ArrayList<Card> community = new ArrayList<Card>(); //community cards that people compare their hand to
 		Deck deck = new Deck();
+		Player player = new Player();
 		
 		updateDeck(deck); //update card values to be able to play the game
+		
+		deck.shuffleDeck();
+		
+		deck.dealCard(player);
+		deck.dealCard(player);
+
+		community.add(deck.getCard());
+		community.add(deck.getCard());
+		community.add(deck.getCard());
+		
+		System.out.println("Player Hand");
+		player.printHand();
+		System.out.println("");
+		System.out.println("Community Cards");
+		for(int i=0;i<community.size();i++)
+		{
+			System.out.println(community.get(i));
+		}
+		
+		player.hand.addAll(community);
+		System.out.println("");
+		System.out.println("Player Hand after addition");
+		player.printHand();
+		
+		Collections.sort(player.hand);
+		System.out.println("");
+		System.out.println("Player Hand after sort");
+		player.printHand();
+		
+		
 		
 	}
 	
 	static void pair(Player a,ArrayList b)
 	{
+		a.hand.addAll(b);
+		Collections.sort(a.hand);
+		a.printHand();
 		//take in both player hand and community array
-		//add the two together and check whole array for a pair of cards that match
+		//add the two together and check whole array for two pairs of cards that match
 	}
 	static void TwoPair(Player a,ArrayList b)
 	{
+		a.hand.addAll(b);
+		Collections.sort(a.hand);
+		a.printHand();
 		//take in both player hand and community array
 		//add the two together and check whole array for two pairs of cards that match	
+	}
+	static void straight(Player a,ArrayList b)
+	{
+		a.hand.addAll(b);
+		Collections.sort(a.hand);
+		a.printHand();
+		//take in both player hand and community array
+		//see above
 	}
 	
 	

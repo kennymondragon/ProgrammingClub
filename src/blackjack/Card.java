@@ -3,7 +3,7 @@
 
 //package blackjack;
 
-public class Card 
+public class Card implements Comparable<Card>
 {
 	private int value=0;
 	private String face;
@@ -35,5 +35,16 @@ public class Card
 	public String toString()
 	{
 		return face + suit;
+	}
+	public int compareTo(Card compareCard) {
+
+		int compareValue = ((Card) compareCard).getValue();
+
+		//ascending order
+		return this.value - compareValue;
+
+		//descending order
+		//return compareValue - this.value;
+
 	}
 }

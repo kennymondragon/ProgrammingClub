@@ -107,6 +107,13 @@ public class Deck {
 			//a.flipisout();
 		a.hand.add(theDeck.remove(0)); //Equivalent of pop
 	}
+	Card getCard()
+	{
+		Card temp;
+		temp = theDeck.get(0);
+		theDeck.remove(0);
+		return temp;
+	}
 	void display()
 	{
 		for(int i=0;i<52;i++)
