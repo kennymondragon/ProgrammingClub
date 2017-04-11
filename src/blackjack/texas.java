@@ -58,7 +58,10 @@ class texas
 			System.out.println(community.get(i));
 		}
 		
-		player.hand.addAll(community);
+		System.out.println("");
+		pair(player,community);
+		
+		/*player.hand.addAll(community);
 		System.out.println("");
 		System.out.println("Player Hand after addition");
 		player.printHand();
@@ -66,19 +69,35 @@ class texas
 		Collections.sort(player.hand);
 		System.out.println("");
 		System.out.println("Player Hand after sort");
-		player.printHand();
+		player.printHand();*/
 		
 		
 		
 	}
-	
-	static void pair(Player a,ArrayList b)
+	/*static void checkHand(Player a,ArrayList b)
 	{
 		a.hand.addAll(b);
 		Collections.sort(a.hand);
-		a.printHand();
+	}*/
+	
+	static boolean pair(Player a,ArrayList b)
+	{
+		boolean pair=false;
+		a.hand.addAll(b);
+		Collections.sort(a.hand);
+		//a.printHand();
+		
+		while((pair==false)&&(count!=a.hand.size()))
+		{
+			//code to iterate through hand using an element as a pivot point
+			//to find a match to the pivot card
+		}
+		
+		
 		//take in both player hand and community array
 		//add the two together and check whole array for two pairs of cards that match
+		
+		return pair;
 	}
 	static void TwoPair(Player a,ArrayList b)
 	{

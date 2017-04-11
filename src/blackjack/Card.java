@@ -36,7 +36,8 @@ public class Card implements Comparable<Card>
 	{
 		return face + suit;
 	}
-	public int compareTo(Card compareCard) {
+	public int compareTo(Card compareCard) 
+	{
 
 		int compareValue = ((Card) compareCard).getValue();
 
