@@ -18,7 +18,7 @@ class Player
 	
 	/**
 	 * Returns an array of the players hand
-	 * @return player.hand
+	 * @return player.hand 
 	 */
 	ArrayList<Card> getCards()
 	{

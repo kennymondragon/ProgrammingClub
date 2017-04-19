@@ -80,7 +80,7 @@ class texas
 	{
 		a.hand.addAll(b);
 		Collections.sort(a.hand);
-	}*/
+	}*/ 
 	
 	/**
 	 * Determines if player has a pair
