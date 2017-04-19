@@ -4,7 +4,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Arrays;
+//import java.util.Arrays; appears to be unused
 
 
 class texas
@@ -53,13 +53,15 @@ class texas
 		player.printHand();
 		System.out.println("");
 		System.out.println("Community Cards");
+		
+		
 		for(int i=0;i<community.size();i++)
 		{
 			System.out.println(community.get(i));
 		}
 		
 		System.out.println("");
-		pair(player,community);
+		System.out.println(pair(player,community));
 		
 		/*player.hand.addAll(community);
 		System.out.println("");
@@ -80,26 +82,29 @@ class texas
 		Collections.sort(a.hand);
 	}*/
 	
-	static boolean pair(Player a,ArrayList b)
+	/**
+	 * Determines if player has a pair
+	 * @param p player containing their hand
+	 * @param community the cards available to all players
+	 */
+	static boolean pair(Player p, ArrayList<Card> community )
 	{
-		boolean pair=false;
-		a.hand.addAll(b);
-		Collections.sort(a.hand);
-		//a.printHand();
-		
-		while((pair==false)&&(count!=a.hand.size()))
-		{
-			//code to iterate through hand using an element as a pivot point
-			//to find a match to the pivot card
-		}
+		//Maybe have this chunk be called prior to the function and just pass in hand
+		//Otherwise every scoring function is doing something like this
+		ArrayList<Card> hand = new ArrayList<Card>(community);//new ArrayList<Card>;
+		for(Card i : p.getCards())
+			hand.add(i);
+		Collections.sort(hand);
 		
 		
-		//take in both player hand and community array
-		//add the two together and check whole array for two pairs of cards that match
 		
-		return pair;
+		for(int i=hand.size()-1;i>1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
+			if(hand.get(i).getValue()==hand.get(i-1).getValue()) //i-1 to check the next lowest card
+				return true;
+		
+		return false;
 	}
-	static void TwoPair(Player a,ArrayList b)
+	static void TwoPair(Player a,ArrayList<Card> b)
 	{
 		a.hand.addAll(b);
 		Collections.sort(a.hand);
@@ -107,7 +112,7 @@ class texas
 		//take in both player hand and community array
 		//add the two together and check whole array for two pairs of cards that match	
 	}
-	static void straight(Player a,ArrayList b)
+	static void straight(Player a,ArrayList<Card> b)
 	{
 		a.hand.addAll(b);
 		Collections.sort(a.hand);
