@@ -55,22 +55,10 @@ class blackjackgame
 		}
 		
 		System.out.println();
-		System.out.println("Here are the hands currently:");
-		for(int i=players.size()-1;i>=0;i--)
-		{
-			System.out.println("");
-			if(i==0)
-			{
-				System.out.println("Dealer:");
-				players.get(0).printHand();
-			}
-			else
-			{
-				System.out.println("Player "+ i + "'s Hand:");
-				players.get(i).printHand();
-			}
-		}
 		
+		System.out.println("Dealer:");
+		players.get(0).printHand();
+	
 		for(int i=players.size()-1;i>0;i--)
 		{
 			//for loop cycles through players top down
@@ -81,6 +69,8 @@ class blackjackgame
 			{
 				System.out.println();
 				System.out.println("Player "+ i +" Please select either Hit or Stand by typing H or S.");
+				System.out.println("Player "+ i + "'s Hand:");
+				players.get(i).printHand();
 				cmd = s.next();
 				switch(cmd)
 				{
