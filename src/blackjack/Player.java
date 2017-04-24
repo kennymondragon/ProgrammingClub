@@ -20,7 +20,7 @@ class Player
 	 * Returns an array of the players hand
 	 * @return player.hand 
 	 */
-	ArrayList<Card> getCards()
+	ArrayList<Card> getHand()
 	{
 		return hand;
 	}
