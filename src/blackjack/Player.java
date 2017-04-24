@@ -39,7 +39,7 @@ class Player
 	
 	/**
 	 * this function is currently called specifically from dealCard() method
-	 * takes in card thats dealt and adds to it to the players hand
+	 * @param Card a incoming Card from deal function
 	 */
 	void addHandValue(Card a)
 	{
@@ -56,8 +56,8 @@ class Player
 	}
 	
 	/**
-	 * ????
-	 * @return
+	 * Get Balance of Player, whats left of their "purse"
+	 * @return float Balance
 	 */
 	float getBalance()
 	{
