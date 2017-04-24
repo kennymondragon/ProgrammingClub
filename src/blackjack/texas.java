@@ -104,13 +104,42 @@ class texas
 		
 		return false;
 	}
-	static void TwoPair(Player a,ArrayList<Card> b)
+	static boolean TwoPair(Player p, ArrayList<Card> community )
 	{
-		a.hand.addAll(b);
-		Collections.sort(a.hand);
-		a.printHand();
-		//take in both player hand and community array
-		//add the two together and check whole array for two pairs of cards that match	
+		ArrayList<Card> temp = new ArrayList<Card>();
+		
+		ArrayList<Card> hand = new ArrayList<Card>(community);//new ArrayList<Card>;
+		for(Card i : p.getCards())
+			hand.add(i);
+		Collections.sort(hand);
+		
+		
+		for(int i=hand.size()-1;i>1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
+			if(hand.get(i).getValue()==hand.get(i-1).getValue()) //i-1 to check the next lowest card
+				temp.add(i);
+				temp.remove(i);
+				temp.add(i-1);
+				temp.remove(i-1);
+				//return true;
+		for(int i=hand.size()-1;i>1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
+			if(hand.get(i).getValue()==hand.get(i-1).getValue()) //i-1 to check the next lowest card
+				temp.add(i);
+				temp.remove(i);
+				temp.add(i-1);
+				temp.remove(i-1);
+		
+		if((temp.size()/4)==1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+		
+		
+		
 	}
 	static void straight(Player a,ArrayList<Card> b)
 	{
