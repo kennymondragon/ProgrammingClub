@@ -104,7 +104,14 @@ class texas
 		
 		return false;
 	}
-	static boolean TwoPair(Player p, ArrayList<Card> community )
+	/**
+	 * Determines if player has two pair
+	 * @param p player containing their hand
+	 * @param community the cards available to all players
+	 * @return true if has two pair
+	 * @return false if no two pair
+	 */
+	static boolean TwoPair(Player p, ArrayList<Card> community)
 	{
 		ArrayList<Card> temp = new ArrayList<Card>();
 		
@@ -141,7 +148,12 @@ class texas
 		
 		
 	}
-	static void straight(Player a,ArrayList<Card> b)
+	/**
+	 * Determines if player has a straight
+	 * @param p player containing their hand
+	 * @param community the cards available to all players
+	 */
+	static void straight(Player p, ArrayList<Card> community)
 	{
 		a.hand.addAll(b);
 		Collections.sort(a.hand);
@@ -149,9 +161,30 @@ class texas
 		//take in both player hand and community array
 		//see above
 	}
+	/**
+	 * Determines if player has a Royal Flush
+	 * @param p player containing their hand
+	 * @param community the cards available to all players
+	 */
+	static void RFlush(Player p, ArrayList<Card> community)
+	{
+		//if statements starting at high card and going through
+		//comparing if the higher card is greater than the lower card
+		//taking into account card value
+	}
+	/*
+		still need:
+		-straight
+		-royal flush
+		-flush
+		-three of a kind
+		-four of a kind
 	
 	
-	
+	/**
+	 *Updates the Ace,King,Queen,Jack to respective numbers in the deck
+	 *@param Deck d incoming operating deck
+	 */
 	static void updateDeck(Deck d)
 	{
 		for(int i=0;i<52;i++)
@@ -176,20 +209,6 @@ class texas
 	}
 	
 }
-
-//initialize deck
-//reset card values so that A=1 K=13 Q=12 J=11
-// suit values should be 0-3
-// Functions that check for hands, straight, pair, 2pair etc... 
-/* game is played by the players each getting two cards, 
-the two players to the left of the dealer put up the big and small blinds
-the players bet, the dealer then deals 3 as community, 
-then each player bets again, dealer deals 1, round of betting, then the dealer deals the last card the river, 
-then the showdown and last bet take place.
-
-the idea is to have the best 5 card hand out of the two dealt and the community cards
-
-*/
 
 
 
