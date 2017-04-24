@@ -38,17 +38,17 @@ class Player
 	}
 	
 	/**
-	 * ????
+	 * this function is currently called specifically from dealCard() method
+	 * takes in card thats dealt and adds to it to the players hand
 	 */
 	void addHandValue(Card a)
 	{
-			//takes in card from dealCard method and adds it to the value of the hand
 			handValue = handValue + a.getValue();
 	}
 	
 	/**
-	 * ????
-	 * @return
+	 * Function to retreive the hand value of the player
+	 * @return int handValue
 	 */
 	int getHandValue()
 	{
@@ -101,7 +101,7 @@ class Player
 	}
 	
 	/**
-	 * ???
+	 * kenny function
 	 * @param newbool
 	 */
 	void setisOut(boolean newbool)
@@ -110,7 +110,7 @@ class Player
 	}
 	
 	/**
-	 * ????
+	 * kenny function
 	 */
 	void flipisOut()
 	{
