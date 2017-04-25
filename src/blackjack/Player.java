@@ -14,6 +14,19 @@ class Player
 	private boolean isOut = false;
 
 
+	
+	/**
+	 * Returns an array of the players hand
+	 * @return player.hand 
+	 */
+	ArrayList<Card> getHand()
+	{
+		return hand;
+	}
+	
+	/**
+	 * Prints hand to console
+	 */
 	void printHand()
 	{
 		//runs a for loop to cycle through cards in hand to print
@@ -22,40 +35,82 @@ class Player
 			System.out.println(hand.get(i));
 		}
 	}
+	
+	/**
+	 * this function is currently called specifically from dealCard() method
+	 * @param Card a incoming Card from deal function
+	 */
 	void addHandValue(Card a)
 	{
-			//takes in card from dealCard method and adds it to the value of the hand
 			handValue = handValue + a.getValue();
 	}
+	
+	/**
+	 * Function to retreive the hand value of the player
+	 * @return int handValue
+	 */
 	int getHandValue()
 	{
 		return handValue;
 	}
+	
+	/**
+	 * Get Balance of Player, whats left of their "purse"
+	 * @return float Balance
+	 */
 	float getBalance()
 	{
 		return balance;
 	}
+	
+	/**
+	 * players bet
+	 * @return
+	 */
 	float getBet()
 	{
 		return bet;
 	}
+	
+	/**
+	 * Is player still in game
+	 * @return
+	 */
 	boolean getisOut()
 	{
 		return isOut;
 	}
+	
+	/**
+	 * Set players bet
+	 * @param a the incoming bet
+	 */
 	void setBet(float a)
 	{
 		bet = a;
 	}
+	
+	/**
+	 * Set the players balance
+	 * @param a incoming balance
+	 */
 	void setBalance(float a)
 	{
 		balance = a;
 	}
+	
+	/**
+	 * kenny function
+	 * @param newbool
+	 */
 	void setisOut(boolean newbool)
 	{
 		isOut = newbool;
 	}
 	
+	/**
+	 * kenny function
+	 */
 	void flipisOut()
 	{
 		isOut = !isOut;

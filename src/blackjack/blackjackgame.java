@@ -9,7 +9,6 @@ import java.io.Console;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-//import java.util.concurrent.TimeUnit;
 
 
 class blackjackgame 
@@ -61,22 +60,10 @@ class blackjackgame
 		*/
 		
 		System.out.println();
-		System.out.println("Here are the hands currently:");
-		for(int i=players.size()-1;i>=0;i--)
-		{
-			System.out.println("");
-			if(i==0)
-			{
-				System.out.println("Dealer:");
-				players.get(0).printHand();
-			}
-			else
-			{
-				System.out.println("Player "+ i + "'s Hand:");
-				players.get(i).printHand();
-			}
-		}
 		
+		System.out.println("Dealer:");
+		players.get(0).printHand();
+	
 		for(int i=players.size()-1;i>0;i--)
 		{
 			//for loop cycles through players top down
@@ -90,6 +77,8 @@ class blackjackgame
 			{
 				System.out.println();
 				System.out.println("Player "+ i +" Please select either Hit or Stand by typing H or S.");
+				System.out.println("Player "+ i + "'s Hand:");
+				players.get(i).printHand();
 				cmd = s.next();
 				switch(cmd)
 				{
@@ -216,9 +205,15 @@ class blackjackgame
 			Q = s.next();
 			if(Q.equals("no")||Q.equals("n")||Q.equals("NO")||Q.equals("No"))
 			{
+<<<<<<< HEAD
 				gameStatus = false;GameServer.main(args);
 			} 
 					
+=======
+				gameStatus = false;
+				GameServer.main(args);
+			}
+>>>>>>> origin/master
 		}
 		s.close();
 	}	
