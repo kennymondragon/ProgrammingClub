@@ -4,7 +4,9 @@
 
 //package blackjack;
 
-//import java.util.Collections;
+import java.util.Collections;
+import java.io.Console;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,32 +15,34 @@ class blackjackgame
 {
 	public static void main(String[] args)
 	{
-		Deck deck = new Deck();
-		int playerNum = 0;
+		Deck theDeck = new Deck();
 		Scanner s = new Scanner(System.in);
+		String cmd = " ";
 		System.out.println("Welcome to BlackJack! How many Players?");
-		playerNum = s.nextInt();
-		String cmd = " "; // <-- Kenny did dis
+		int playerNum = s.nextInt();
 
 		while (playerNum <= 0 || playerNum > 5) 
 		{
 			System.out.println("Unusable amount of players! Please input another amount between 0-5!");
 			playerNum = s.nextInt();
 			// quick check for within range
-		}
+		}//End while (playerNum <= 0 || playerNum > 5) 
+		
 		System.out.print("Please Wait...");
 		System.out.print(".");
 
 		System.out.print(".");
 		System.out.print(".");
 
-		deck.shuffleDeck();
+		theDeck.shuffleDeck();
 
 		// Creating a list of player hands
 		ArrayList<Player> players = new ArrayList<Player>((playerNum));
 		for (int i = 0; i <=(playerNum); i++)
 		{
 			players.add(new Player());
+			dealCardToPlayer(theDeck, players.get(i));
+			dealCardToPlayer(theDeck, players.get(i));
 		}
 
 		System.out.println("");
@@ -47,12 +51,13 @@ class blackjackgame
 		System.out.println("Good Luck and Have Fun!");
 
 		//for loop to run through players and deal cards
-		
+		/*
 		for(int i = players.size()-1; i>=0; i--)
 		{
-			deck.dealCard(players.get(i));
-			deck.dealCard(players.get(i));
+			theDeck.dealCard(players.get(i));
+			theDeck.dealCard(players.get(i));
 		}
+		*/
 		
 		System.out.println();
 		
@@ -63,6 +68,9 @@ class blackjackgame
 		{
 			//for loop cycles through players top down
 			//because dealer is position zero
+			for(int j = 0; j < 20; j++)
+				System.out.println("\n");
+			
 
 			cmd = " ";
 			while((!cmd.equals("stand")) && (!cmd.equals("bust")))
@@ -79,7 +87,7 @@ class blackjackgame
 						break;
 						
 					case "h":
-						cmd = dealCard(deck, players.get(i));
+						cmd = dealCardToPlayer(theDeck, players.get(i));
 						break;
 						
 					case "S": 	
@@ -87,7 +95,7 @@ class blackjackgame
 						break;
 						
 					case "H": 
-						cmd = dealCard(deck, players.get(i));
+						cmd = dealCardToPlayer(theDeck, players.get(i));
 						break;
 						
 					default:
@@ -113,7 +121,7 @@ class blackjackgame
 		{
 			//deck.dealCard(players.get(0)); //deal a card to the dealer
 			//players.get(0).printHand(); //show the card
-			dealCard(deck, players.get(0));
+			dealCardToPlayer(theDeck, players.get(0));
 
 		}
 		players.get(0).printHand(); //show the card
@@ -170,7 +178,7 @@ class blackjackgame
 		}
 	}
 	
-	public static String dealCard(Deck deck, Player p)
+	public static String dealCardToPlayer(Deck deck, Player p)
 	{
 		deck.dealCard(p);
 		if(p.getHandValue()>21)
@@ -197,11 +205,16 @@ class blackjackgame
 			Q = s.next();
 			if(Q.equals("no")||Q.equals("n")||Q.equals("NO")||Q.equals("No"))
 			{
+<<<<<<< HEAD
+				gameStatus = false;GameServer.main(args);
+			} 
+					
+=======
 				gameStatus = false;
 				GameServer.main(args);
 			}
+>>>>>>> origin/master
 		}
 		s.close();
 	}	
-
 }
