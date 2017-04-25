@@ -62,6 +62,8 @@ class texas
 		
 		System.out.println("");
 		System.out.println(pair(player,community));
+		System.out.println("");
+		System.out.println(TwoPair(player,community));
 		
 		/*player.hand.addAll(community);
 		System.out.println("");
@@ -92,7 +94,7 @@ class texas
 		//Maybe have this chunk be called prior to the function and just pass in hand
 		//Otherwise every scoring function is doing something like this
 		ArrayList<Card> hand = new ArrayList<Card>(community);//new ArrayList<Card>;
-		for(Card i : p.getCards())
+		for(Card i : p.getHand())
 			hand.add(i);
 		Collections.sort(hand);
 		
@@ -116,24 +118,28 @@ class texas
 		ArrayList<Card> temp = new ArrayList<Card>();
 		
 		ArrayList<Card> hand = new ArrayList<Card>(community);//new ArrayList<Card>;
-		for(Card i : p.getCards())
-			hand.add(i);
+		for(Card j : p.getHand())
+			hand.add(j);
 		Collections.sort(hand);
 		
 		
-		for(int i=hand.size()-1;i>1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
+		for(int i = hand.size()-1;i>1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
 			if(hand.get(i).getValue()==hand.get(i-1).getValue()) //i-1 to check the next lowest card
-				temp.add(i);
-				temp.remove(i);
-				temp.add(i-1);
-				temp.remove(i-1);
+			{
+				temp.add(hand.get(i));
+				temp.remove(hand.get(i));
+				temp.add(hand.get(i-1));
+				temp.remove(hand.get(i-1));
 				//return true;
-		for(int i=hand.size()-1;i>1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
+			}
+		for(int i = hand.size()-1;i>1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
 			if(hand.get(i).getValue()==hand.get(i-1).getValue()) //i-1 to check the next lowest card
-				temp.add(i);
-				temp.remove(i);
-				temp.add(i-1);
-				temp.remove(i-1);
+			{
+				temp.add(hand.get(i));
+				temp.remove(hand.get(i));
+				temp.add(hand.get(i-1));
+				temp.remove(hand.get(i-1));
+			}
 		
 		if((temp.size()/4)==1)
 		{
@@ -155,9 +161,6 @@ class texas
 	 */
 	static void straight(Player p, ArrayList<Card> community)
 	{
-		a.hand.addAll(b);
-		Collections.sort(a.hand);
-		a.printHand();
 		//take in both player hand and community array
 		//see above
 	}
