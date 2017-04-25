@@ -64,6 +64,11 @@ class texas
 		}
 		
 		System.out.println("");
+		System.out.println("Sorted");
+		
+		
+		
+		System.out.println("");
 		System.out.println(pair(player,community));
 		System.out.println("");
 		System.out.println(TwoPair(player,community));
@@ -103,7 +108,12 @@ class texas
 			hand.add(i);
 		Collections.sort(hand);
 		
+		for(int i=hand.size()-1;i>=0;i--)
+		{
+			System.out.println(hand.get(i));
+		}
 		
+		System.out.println("");
 		
 		for(int i=hand.size()-1;i>=1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
 			if(hand.get(i).getValue()==hand.get(i-1).getValue()) //i-1 to check the next lowest card
@@ -151,9 +161,16 @@ class texas
 		}
 			
 		
-		if((temp.size()/4)==1)
+		if(!temp.isEmpty())
 		{
-			return true;
+			if((temp.size()/4)==1 || (temp.size()/6)==1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
@@ -177,6 +194,7 @@ class texas
 		for(Card j : p.getHand())
 			hand.add(j);
 		Collections.sort(hand);
+		
 		
 		if((hand.get(1).getValue()-hand.get(0).getValue())==1)
 			if((hand.get(2).getValue()-hand.get(1).getValue())==1)

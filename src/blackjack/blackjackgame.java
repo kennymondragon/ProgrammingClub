@@ -205,15 +205,9 @@ class blackjackgame
 			Q = s.next();
 			if(Q.equals("no")||Q.equals("n")||Q.equals("NO")||Q.equals("No"))
 			{
-<<<<<<< HEAD
-				gameStatus = false;GameServer.main(args);
-			} 
-					
-=======
 				gameStatus = false;
 				GameServer.main(args);
-			}
->>>>>>> origin/master
+			} 
 		}
 		s.close();
 	}	
