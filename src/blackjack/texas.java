@@ -48,6 +48,8 @@ class texas
 		community.add(deck.getCard());
 		community.add(deck.getCard());
 		community.add(deck.getCard());
+		community.add(deck.getCard());
+		community.add(deck.getCard());
 		
 		System.out.println("Player Hand");
 		player.printHand();
@@ -64,6 +66,8 @@ class texas
 		System.out.println(pair(player,community));
 		System.out.println("");
 		System.out.println(TwoPair(player,community));
+		System.out.println("");
+		System.out.println(straight(player,community));
 		
 		/*player.hand.addAll(community);
 		System.out.println("");
@@ -100,7 +104,7 @@ class texas
 		
 		
 		
-		for(int i=hand.size()-1;i>1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
+		for(int i=hand.size()-1;i>=1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
 			if(hand.get(i).getValue()==hand.get(i-1).getValue()) //i-1 to check the next lowest card
 				return true;
 		
@@ -123,23 +127,28 @@ class texas
 		Collections.sort(hand);
 		
 		
-		for(int i = hand.size()-1;i>1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
+		for(int i = hand.size()-1;i>=1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
+		{	
 			if(hand.get(i).getValue()==hand.get(i-1).getValue()) //i-1 to check the next lowest card
 			{
 				temp.add(hand.get(i));
-				temp.remove(hand.get(i));
+				//hand.remove(i);
 				temp.add(hand.get(i-1));
-				temp.remove(hand.get(i-1));
-				//return true;
+				//hand.remove(i-1);
 			}
-		for(int i = hand.size()-1;i>1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
+		}
+		for(int i = hand.size()-1;i>=1;i--) // size-1 to start at end of array, i>0 to avoid reaching off end
+		{	
 			if(hand.get(i).getValue()==hand.get(i-1).getValue()) //i-1 to check the next lowest card
-			{
-				temp.add(hand.get(i));
-				temp.remove(hand.get(i));
-				temp.add(hand.get(i-1));
-				temp.remove(hand.get(i-1));
-			}
+				if(!(temp.get(0)==hand.get(i)))
+				{
+					temp.add(hand.get(i));
+					//hand.remove(i);
+					temp.add(hand.get(i-1));
+					//hand.remove(i-1);
+				}
+		}
+			
 		
 		if((temp.size()/4)==1)
 		{
@@ -158,11 +167,42 @@ class texas
 	 * Determines if player has a straight
 	 * @param p player containing their hand
 	 * @param community the cards available to all players
+	 * @return true if straight
+	 * @return false if no straight
 	 */
-	static void straight(Player p, ArrayList<Card> community)
+	static boolean straight(Player p, ArrayList<Card> community)
 	{
-		//take in both player hand and community array
-		//see above
+		ArrayList<Card> hand = new ArrayList<Card>(community);//new ArrayList<Card>;
+		for(Card j : p.getHand())
+			hand.add(j);
+		Collections.sort(hand);
+		
+		if((hand.get(1).getValue()-hand.get(0).getValue())==1)
+			if((hand.get(2).getValue()-hand.get(1).getValue())==1)
+				if((hand.get(3).getValue()-hand.get(2).getValue())==1)
+					if((hand.get(4).getValue()-hand.get(3).getValue())==1)
+						return true;
+		else
+			return false;
+		
+		if((hand.get(2).getValue()-hand.get(1).getValue())==1)
+			if((hand.get(3).getValue()-hand.get(2).getValue())==1)
+				if((hand.get(4).getValue()-hand.get(3).getValue())==1)
+					if((hand.get(5).getValue()-hand.get(4).getValue())==1)
+						return true;
+		else
+			return false;
+		
+		if((hand.get(3).getValue()-hand.get(2).getValue())==1)
+			if((hand.get(4).getValue()-hand.get(3).getValue())==1)
+				if((hand.get(5).getValue()-hand.get(4).getValue())==1)
+					if((hand.get(6).getValue()-hand.get(5).getValue())==1)
+						return true;
+		else
+			return false;
+		
+		return false;
+		
 	}
 	/**
 	 * Determines if player has a Royal Flush
