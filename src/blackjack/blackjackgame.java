@@ -4,7 +4,9 @@
 
 //package blackjack;
 
-//import java.util.Collections;
+import java.util.Collections;
+import java.io.Console;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 //import java.util.concurrent.TimeUnit;
@@ -79,6 +81,9 @@ class blackjackgame
 		{
 			//for loop cycles through players top down
 			//because dealer is position zero
+			for(int j = 0; j < 20; j++)
+				System.out.println("\n");
+			
 
 			cmd = " ";
 			while((!cmd.equals("stand")) && (!cmd.equals("bust")))
@@ -217,5 +222,4 @@ class blackjackgame
 		}
 		s.close();
 	}	
-
 }
