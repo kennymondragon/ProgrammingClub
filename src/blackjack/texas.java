@@ -188,7 +188,7 @@ class texas
 	 * @return true if straight
 	 * @return false if no straight
 	 */
-	static boolean straight(Player p, ArrayList<Card> community)
+	static void straight(Player p, ArrayList<Card> community)
 	{
 		ArrayList<Card> hand = new ArrayList<Card>(community);//new ArrayList<Card>;
 		for(Card j : p.getHand())
@@ -200,27 +200,19 @@ class texas
 			if((hand.get(2).getValue()-hand.get(1).getValue())==1)
 				if((hand.get(3).getValue()-hand.get(2).getValue())==1)
 					if((hand.get(4).getValue()-hand.get(3).getValue())==1)
-						return true;
-		else
-			return false;
+						flush(hand);
 		
 		if((hand.get(2).getValue()-hand.get(1).getValue())==1)
 			if((hand.get(3).getValue()-hand.get(2).getValue())==1)
 				if((hand.get(4).getValue()-hand.get(3).getValue())==1)
 					if((hand.get(5).getValue()-hand.get(4).getValue())==1)
-						return true;
-		else
-			return false;
+						flush(hand);
 		
 		if((hand.get(3).getValue()-hand.get(2).getValue())==1)
 			if((hand.get(4).getValue()-hand.get(3).getValue())==1)
 				if((hand.get(5).getValue()-hand.get(4).getValue())==1)
 					if((hand.get(6).getValue()-hand.get(5).getValue())==1)
-						return true;
-		else
-			return false;
-		
-		return false;
+						flush(hand);
 		
 		
 	}
@@ -231,25 +223,8 @@ class texas
 	 * @param p player containing their hand
 	 * @param community the cards available to all players
 	 */
-	static boolean flush(Player p, ArrayList<Card> community)
+	static void flush(ArrayList<Card> hand)
 	{
-		/*if(straight==true)
-		{
-			if(((hand.get(6).getValue()-hand.get(5).getValue())==1))
-			{
-				if((hand.get(2).getValue()-hand.get(1).getValue())==1)
-				{
-					if((hand.get(3).getValue()-hand.get(2).getValue())==1)
-					{
-						if((hand.get(4).getValue()-hand.get(3).getValue())==1)
-						{
-						}
-					}
-				}
-			}
-		}
-		else*/
-			return false;
 		
 	}
 	/**
@@ -260,15 +235,14 @@ class texas
 	 * @param p player containing their hand
 	 * @param community the cards available to all players
 	 */
-	static boolean RFlush(Player p, ArrayList<Card> community)
+	static void RFlush(ArrayList<Card> hand)
 	{
-		
-		return false;
 	}
 	/*
 		still need:
 		-straight - done 4-25-17 BO
 		-royal flush
+		-full house
 		-flush
 		-three of a kind
 		-four of a kind
@@ -297,7 +271,7 @@ class texas
 			}
 			else if((i%13)==0)
 			{
-				d.theDeck.get(i).setValue(1);
+				d.theDeck.get(i).setValue(14);
 			}
 		}
 	}

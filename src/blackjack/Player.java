@@ -12,6 +12,14 @@ class Player
 	private float balance = 0;
 	private float bet = 0;
 	private boolean isOut = false;
+	private boolean straight = false;
+	private boolean pair = false;
+	private boolean twopair = false;
+	private boolean flush = false;
+	private boolean rflush = false;
+	private boolean fhouse = false;
+	private boolean threeofkind = false;
+	private boolean fourofkind = false;
 
 
 	
