@@ -222,25 +222,57 @@ class texas
 		
 		return false;
 		
+		
 	}
 	/**
-	 * Determines if player has a Royal Flush
+	 * Determines if player has a Flush
+	 * Straight Flush: Five cards in numerical order, all of identical suits.
+	 * In the event of a tie: Highest rank at the top of the sequence wins.
 	 * @param p player containing their hand
 	 * @param community the cards available to all players
 	 */
-	static void RFlush(Player p, ArrayList<Card> community)
+	static boolean flush(Player p, ArrayList<Card> community)
 	{
-		//if statements starting at high card and going through
-		//comparing if the higher card is greater than the lower card
-		//taking into account card value
+		/*if(straight==true)
+		{
+			if(((hand.get(6).getValue()-hand.get(5).getValue())==1))
+			{
+				if((hand.get(2).getValue()-hand.get(1).getValue())==1)
+				{
+					if((hand.get(3).getValue()-hand.get(2).getValue())==1)
+					{
+						if((hand.get(4).getValue()-hand.get(3).getValue())==1)
+						{
+						}
+					}
+				}
+			}
+		}
+		else*/
+			return false;
+		
+	}
+	/**
+	 * Determines if player has a Royal Flush
+	 * The best possible straight flush is known as a royal flush, 
+	 * which consists of the ace, king, queen, jack and ten of a suit.
+	 * The royal flush is an unbeatable hand.
+	 * @param p player containing their hand
+	 * @param community the cards available to all players
+	 */
+	static boolean RFlush(Player p, ArrayList<Card> community)
+	{
+		
+		return false;
 	}
 	/*
 		still need:
-		-straight
+		-straight - done 4-25-17 BO
 		-royal flush
 		-flush
 		-three of a kind
 		-four of a kind
+	*/
 	
 	
 	/**
