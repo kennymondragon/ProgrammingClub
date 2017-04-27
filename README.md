@@ -6,7 +6,9 @@ then returns to that same game server so another choice can be made.
 So far this set includes
  - Blackjack
  - Texas Hold-em
-Planned
+
+
+What is Planned
  - Poker
  - 3 Card Poker
  
