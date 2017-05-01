@@ -53,6 +53,7 @@ public class graphics extends JPanel implements Runnable, MouseListener, MouseMo
 		//makes images look sharp
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2d.clearRect(0, 0, WIDTH, HEIGHT);
+		
 		g2d.drawRect(x , 25, 50, 50);
 		
 		g2d.dispose(); // disposes of junk after update
