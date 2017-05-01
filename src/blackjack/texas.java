@@ -1,7 +1,8 @@
+
 //Programming Club 2017
 //texas holdem style poker game
 
-//package blackjack;
+package blackjack;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.List;

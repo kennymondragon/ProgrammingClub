@@ -1,7 +1,7 @@
 //Ben Olson
 //PC
 
-//package blackjack;
+package blackjack;
 
 public class Card implements Comparable<Card>
 {
