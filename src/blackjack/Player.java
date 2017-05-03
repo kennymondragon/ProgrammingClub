@@ -3,7 +3,7 @@
 //PC
 //1-24-17
 
-
+package blackjack;
 import java.util.ArrayList;
 
 class Player
@@ -13,7 +13,7 @@ class Player
 	private float balance = 0;
 	private float bet = 0;
 	private boolean isOut = false;
-
+	public String handScore;
 
 
 	
