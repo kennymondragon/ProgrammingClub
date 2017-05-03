@@ -72,6 +72,8 @@ class blackjackgame
 			for(int j = 0; j < 20; j++)
 				System.out.println("\n");
 			
+			if ((i+1) < players.size() && players.get(i + 1).getisOut())
+				System.out.println("Player " + i++ + "  Busted \n\n");
 
 			cmd = " ";
 			while((!cmd.equals("stand")) && (!cmd.equals("bust")))
