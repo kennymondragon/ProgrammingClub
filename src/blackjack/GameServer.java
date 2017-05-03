@@ -3,7 +3,6 @@
 //PC
 //1-31-17
 
-package blackjack;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -30,6 +29,12 @@ class GameServer
 			System.out.println((i+1)+". "+games.get(i));
 		}
 		System.out.println("");
+		while(!s.hasNextInt())
+		{
+			System.out.println("Please input an Integer within the printed options");
+			s.next();
+		}
+		
 		choice = s.nextInt();
 		switch(choice)
 		{
@@ -37,7 +42,6 @@ class GameServer
 			case 2: texas.Game();
 		};
 			
-		s.close();
 	}
 }
 		
