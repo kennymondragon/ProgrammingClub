@@ -78,7 +78,7 @@ class Player
 	 * Is player still in game
 	 * @return
 	 */
-	boolean getisOut()
+	boolean getIsOut()
 	{
 		return isOut;
 	}

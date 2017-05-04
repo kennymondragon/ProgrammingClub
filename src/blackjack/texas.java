@@ -25,7 +25,7 @@ class texas {
 			if (Q.equals("no") || Q.equals("n") || Q.equals("NO") || Q.equals("No")) {
 				gameStatus = false;
 				GameServer.main(args);
-			}
+			}	
 		}
 
 		s.close();
@@ -33,51 +33,75 @@ class texas {
 
 	public static void main(String[] args) {
 		ArrayList<Card> community = new ArrayList<Card>(); // community cards
-															// that people
+		ArrayList<Card> burnpile = new ArrayList<Card>();	// that people
 															// compare their
 															// hand to
 		Deck deck = new Deck();
 		Player player = new Player();
+		Player dealer = new Player();
 
 		updateDeck(deck); // update card values to be able to play the game
 
 		deck.shuffleDeck();
 
 		deck.dealCard(player);
+		burnpile.add(deck.getCard());
+		deck.dealCard(dealer);
+		burnpile.add(deck.getCard());
 		deck.dealCard(player);
-
-		community.add(deck.getCard());
-		community.add(deck.getCard());
-		community.add(deck.getCard());
-		community.add(deck.getCard());
-		community.add(deck.getCard());
-
-		System.out.println("Player Hand");
-		player.printHand();
-		System.out.println("");
-		System.out.println("Community Cards");
-
-		for (int i = 0; i < community.size(); i++) {
-			System.out.println(community.get(i));
+		burnpile.add(deck.getCard());
+		deck.dealCard(dealer);
+		
+		
+		for(Card c : player.hand)
+		{
+			System.out.println(c);
 		}
-		scorePlayer(player, community);
 		System.out.println("");
-		System.out.println("Sorted");
+		Scanner s = new Scanner(System.in);
+		String input;
+		
+		community.add(deck.getCard());
+		burnpile.add(deck.getCard());
+		community.add(deck.getCard());
+		burnpile.add(deck.getCard());
+		community.add(deck.getCard());
+		
+		for(Card c : community)
+		{
+			System.out.println(c);
+		}
+		System.out.println("");
+		while(player.getIsOut() == false)
+		{
+			System.out.println("Would you like to bet or fold?");
+			input = s.nextLine();
+			
+				switch(input)
+				{
+					case "b":	
+						 community.add(deck.getCard());
+						break;
+						
+					case "f":
+						player.setisOut(true);
+						break;
+						
+					case "B": 	
+						community.add(deck.getCard());
+						break;
+						
+					case "F": 
+						player.setisOut(true);
+						break;
+						
+					default:
+						System.out.println("Invaild input...");
+						break;
+				}
+			
+		}
 
-		System.out.println("");
-		// System.out.println(pair(player,community));
-		System.out.println("");
-		System.out.println(TwoPair(player, community));
-		System.out.println("");
-		// System.out.println(straight(player,community));
-
-		/*
-		 * player.hand.addAll(community); System.out.println("");
-		 * System.out.println("Player Hand after addition"); player.printHand();
-		 * 
-		 * Collections.sort(player.hand); System.out.println("");
-		 * System.out.println("Player Hand after sort"); player.printHand();
-		 */
 
 	}
 	/*
