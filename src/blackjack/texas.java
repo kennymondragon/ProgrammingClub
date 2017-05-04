@@ -53,53 +53,81 @@ class texas {
 		deck.dealCard(dealer);
 		
 		
+		System.out.println("");
+		Scanner s = new Scanner(System.in);
+		int input;
+		
+		community.add(deck.getCard());
+		burnpile.add(deck.getCard());
+		community.add(deck.getCard());
+		burnpile.add(deck.getCard());
+		community.add(deck.getCard());
+		
+		
+		System.out.println("Your Cards:");
 		for(Card c : player.hand)
 		{
 			System.out.println(c);
 		}
-		System.out.println("");
-		Scanner s = new Scanner(System.in);
-		String input;
+		System.out.println("Would you like to bet or fold?");
+		input = s.nextInt();
 		
-		community.add(deck.getCard());
-		burnpile.add(deck.getCard());
-		community.add(deck.getCard());
-		burnpile.add(deck.getCard());
-		community.add(deck.getCard());
+		//if statement the following for fold right away, putting isout at true
 		
-		for(Card c : community)
+		if(((input == 'f')||(input == 'F'))==true)
 		{
-			System.out.println(c);
+			player.setisOut(true);
 		}
-		System.out.println("");
+		else
+		{
+			System.out.println("");
+			System.out.println("These are the community cards as the dealer turns them:");
+			for(Card c : community)
+			{
+				for(int i=100000000;i>0;i--){}
+				System.out.println(c);
+				for(int i=100000000;i>0;i--){}
+			}
+		}
+		
+		
 		while(player.getIsOut() == false)
 		{
+			/*System.out.println("Your Cards:");
+			for(Card c : player.hand)
+			{
+				System.out.println(c);
+			}*/
+			System.out.println("");
+			for(Card c : community)
+			{
+				System.out.println(c);
+			}
+		
 			System.out.println("Would you like to bet or fold?");
-			input = s.nextLine();
-			
-				switch(input)
-				{
-					case "b":	
-						 community.add(deck.getCard());
-						break;
+			input = (char) s.nextInt();
+			switch(input)
+			{
+				case 'b':	
+					community.add(deck.getCard());
+					break;
+					
+				case 'f':
+					player.setisOut(true);
+					break;
+					
+				case 'B': 	
+					community.add(deck.getCard());
+					break;
+					
+				case 'F': 
+					player.setisOut(true);
+					break;
 						
-					case "f":
-						player.setisOut(true);
-						break;
-						
-					case "B": 	
-						community.add(deck.getCard());
-						break;
-						
-					case "F": 
-						player.setisOut(true);
-						break;
-						
-					default:
-						System.out.println("Invaild input...");
-						break;
-				}
-			
+				default:
+					System.out.println("Invalid input...");
+					break;
+			}
 		}
 
 

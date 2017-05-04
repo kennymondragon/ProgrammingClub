@@ -71,7 +71,7 @@ class blackjackgame
 			for(int j = 0; j < 20; j++)
 				System.out.println("\n");
 			
-			if ((i+1) < players.size() && players.get(i + 1).getisOut())
+			if ((i+1) < players.size() && players.get(i + 1).getIsOut())
 				System.out.println("Player " + (i+1) + "  Busted \n\n");
 
 			cmd = " ";
@@ -137,9 +137,9 @@ class blackjackgame
 		
 		for(int i=players.size()-1;i>0;i--)
 		{
-			if(!players.get(i).getisOut())
+			if(!players.get(i).getIsOut())
 			{
-				if(players.get(0).getisOut())
+				if(players.get(0).getIsOut())
 					winners.add(("Player "+ i + " "));
 				else if(players.get(i).getHandValue() > players.get(0).getHandValue())
 					winners.add(("Player "+ i + " "));
