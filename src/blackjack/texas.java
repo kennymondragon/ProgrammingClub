@@ -55,7 +55,7 @@ class texas {
 		
 		System.out.println("");
 		Scanner s = new Scanner(System.in);
-		int input;
+		String input;
 		
 		community.add(deck.getCard());
 		burnpile.add(deck.getCard());
@@ -70,11 +70,11 @@ class texas {
 			System.out.println(c);
 		}
 		System.out.println("Would you like to bet or fold?");
-		input = s.nextInt();
+		input = s.nextLine();
 		
 		//if statement the following for fold right away, putting isout at true
 		
-		if(((input == 'f')||(input == 'F'))==true)
+		if(((input == "f")||(input == "F"))==true)
 		{
 			player.setisOut(true);
 		}
@@ -86,6 +86,8 @@ class texas {
 			{
 				for(int i=100000000;i>0;i--){}
 				System.out.println(c);
+				for(int i=100000000;i>0;i--){}
+				for(int i=100000000;i>0;i--){}
 				for(int i=100000000;i>0;i--){}
 			}
 		}
@@ -105,22 +107,22 @@ class texas {
 			}
 		
 			System.out.println("Would you like to bet or fold?");
-			input = (char) s.nextInt();
+			input = s.nextLine();
 			switch(input)
 			{
-				case 'b':	
+				case "b":	
 					community.add(deck.getCard());
 					break;
 					
-				case 'f':
+				case "f":
 					player.setisOut(true);
 					break;
 					
-				case 'B': 	
+				case "B": 	
 					community.add(deck.getCard());
 					break;
 					
-				case 'F': 
+				case "F": 
 					player.setisOut(true);
 					break;
 						
