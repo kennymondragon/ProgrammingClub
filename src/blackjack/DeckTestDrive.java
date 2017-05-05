@@ -1,4 +1,3 @@
-package blackjack;
 
 public class DeckTestDrive {
 	public static void main() {

@@ -2,14 +2,21 @@
 /*
  * this needs to be a part of the main blackjack game but I will
  * work out a test implementation before moving it over for the actual game
+ * currently a bunch of test junk, don't bother with this class
  */
-package blackjack;
 
 
 import javax.swing.JPanel;
 import java.awt.geom.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.imageio.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -19,13 +26,15 @@ import java.awt.event.MouseMotionListener;
 
 public class graphics extends JPanel implements Runnable, MouseListener, MouseMotionListener{
 	
-	
+
 
 	public graphics() {  
 		setPreferredSize(new Dimension(WIDTH, HEIGHT)); 
 		setFocusable(true);  //makes sure listeners are working correctly
 		addMouseListener(this);
 		addMouseMotionListener(this);
+		
+	
 		
 		start();
 	}
@@ -43,18 +52,20 @@ public class graphics extends JPanel implements Runnable, MouseListener, MouseMo
 	//mouse position relative to window
 	public static int MouseX, MouseY;
 	private int x = 0;
+	
 	public void update(){
 		x++;
 		
 	}
 	
 	public void paintComponent(Graphics g){
+		
 		Graphics2D g2d = (Graphics2D) g;
 		//makes images look sharp
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2d.clearRect(0, 0, WIDTH, HEIGHT);
 		
-		g2d.drawRect(x , 25, 50, 50);
+		//g2d.drawRect(x , 25, 50, 50);
 		
 		g2d.dispose(); // disposes of junk after update
 		
@@ -127,15 +138,19 @@ public class graphics extends JPanel implements Runnable, MouseListener, MouseMo
 
 	
 	public static void main(String[] args){
-		// generates the game window itself
-		JFrame frame = new JFrame("Poker");
-		// frame settings
-		frame.add(new graphics());
-		frame.setSize(300, 300);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(new graphics(), BorderLayout.CENTER);
-		frame.pack();
+	
+		
+		   JFrame frame = new JFrame("Poker");
+			    
+		   frame.add(new graphics());
+		   frame.setSize(300, 300);
+		   frame.setVisible(true);
+		   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		   frame.add(new graphics(), BorderLayout.CENTER);
+		   frame.pack();
+	
+	
+	 
 	}
 
 
@@ -153,3 +168,29 @@ public class graphics extends JPanel implements Runnable, MouseListener, MouseMo
 	
 
 }
+
+/*
+ * 	/*String path = "weinersack.jpg";
+				BufferedImage img;
+				img = ImageIO.read(new File(path));
+				JLabel label = new JLabel(new ImageIcon(img));
+				
+			    JFrame frame = new JFrame("Poker");
+				frame.add(new graphics());
+				frame.getContentPane().add(label);
+				frame.setSize(300, 300);
+				frame.setVisible(true);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.add(new graphics(), BorderLayout.CENTER);
+				frame.pack();
+		
+				String path = "weinersack.jpg";
+		        BufferedImage image = ImageIO.read(new File(path));
+		        JLabel label = new JLabel(new ImageIcon(image));
+		        JFrame f = new JFrame();
+		        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		        f.getContentPane().add(label);
+		        f.pack();
+		        f.setLocation(200,200);
+		        f.setVisible(true);
+*/
