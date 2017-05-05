@@ -1,5 +1,5 @@
-//Ben Olson
-//PC
+//Normandale Programming
+//Spring 2017
 
 
 public class Card implements Comparable<Card>
