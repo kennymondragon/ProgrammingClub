@@ -1,9 +1,11 @@
-package cardgame;
+package cardgame.application;
 /*
  * created by Brandon Ly, May 4th
  * 
  * entry point of game
  */
+import cardgame.Board;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
