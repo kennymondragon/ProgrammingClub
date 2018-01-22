@@ -29,7 +29,7 @@ public class graphics extends JPanel implements Runnable, MouseListener, MouseMo
 	
 
 
-	public graphics() {  
+	public graphics() {
 		setPreferredSize(new Dimension(WIDTH, HEIGHT)); 
 		setFocusable(true);  //makes sure listeners are working correctly
 		addMouseListener(this);

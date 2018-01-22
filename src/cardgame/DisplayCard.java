@@ -7,8 +7,8 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class displayCard extends JFrame {
-    public displayCard() {
+public class DisplayCard extends JFrame {
+    public DisplayCard() {
 
         initUI();
     }
@@ -54,7 +54,7 @@ public class displayCard extends JFrame {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            displayCard ex = new displayCard();
+            DisplayCard ex = new DisplayCard();
             ex.setVisible(true);
         });
     }

@@ -4,14 +4,11 @@ package cardgame;
 //PC
 //1-27-17
 
-import java.util.Collections;
-import java.io.Console;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-class blackjackgame 
+class BlackJackGame
 {
 	public static void main(String[] args)
 	{
@@ -200,7 +197,7 @@ class blackjackgame
 		Scanner s = new Scanner(System.in);
 		while(gameStatus == true)
 		{
-			blackjackgame.main(args);
+			BlackJackGame.main(args);
 			
 			System.out.println("Would you like to play again?");
 			System.out.println();

@@ -39,7 +39,7 @@ class GameServer
 		choice = s.nextInt();
 		switch(choice)
 		{
-			case 1: blackjackgame.Game();
+			case 1: BlackJackGame.Game();
 			case 2: texas.Game();
 		};
 			
