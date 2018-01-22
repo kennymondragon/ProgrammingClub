@@ -1,3 +1,4 @@
+package cardgame;
 
 import javax.swing.JComponent;
 import java.awt.*;

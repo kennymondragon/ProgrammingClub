@@ -1,3 +1,4 @@
+package cardgame;
 // updated by Brandon Ly April 30th
 /*
  * this needs to be a part of the main blackjack game but I will
