@@ -18,6 +18,7 @@ switch ( OperatingSystem.current() ) {
 }
 
 project.ext.lwjglVersion = "3.1.5"
+mainClassName = "cardgame.application.Main"
 
 repositories {
     jcenter()

@@ -15,7 +15,7 @@ public class Main {
         while (!scanner.hasNextInt()) {
             System.out.print("Please enter a number: ");
             scanner.next();
-        }
+        }git 
         int game = scanner.nextInt();
         switch (game) {
             case 1:
