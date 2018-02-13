@@ -37,6 +37,8 @@ class Player
 		{
 			System.out.println(hand.get(i));
 		}
+		System.out.println("Hand value is: " + getHandValue()); // Display hand total every time cards are shown...
+		System.out.println("--------------------------------------"); // Dashes to seperate previous hands/players...
 	}
 	
 	/**

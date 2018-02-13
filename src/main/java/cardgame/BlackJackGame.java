@@ -65,8 +65,8 @@ public class BlackJackGame
 		{
 			//for loop cycles through players top down
 			//because dealer is position zero
-			for(int j = 0; j < 20; j++)
-				System.out.println("\n");
+			//for(int j = 0; j < 20; j++) **Commented out and to be replaced with dashes**
+			//	System.out.println("\n"); **Commented out and to be replaced with dashes**
 			
 			if ((i+1) < players.size() && players.get(i + 1).getIsOut())
 				System.out.println("Player " + (i+1) + "  Busted \n\n");
@@ -100,10 +100,7 @@ public class BlackJackGame
 					default:
 						System.out.println("Invaild input...");
 						break;
-				}
-				
-				System.out.println("Player "+i+"'s Hand valuse is: " + players.get(i).getHandValue());
-					
+				}	
 			}
 			//String var needs to be set back to a default after player while loop
 			System.out.println("Player "+i+"'s Hand is:");
@@ -160,20 +157,26 @@ public class BlackJackGame
 			System.out.println(r);
 		} // try to iterate through the arraylists
 		
-		System.out.println("");
-		System.out.println("Ties are: ");
-		
-		for(String r : tie)
+		if(!tie.isEmpty()) // If there are ties show them...
 		{
-			System.out.println(r);
+			System.out.println("");
+			System.out.println("Ties are: ");
+		
+			for(String r : tie)
+			{
+				System.out.println(r);
+			}
 		}
 		
-		System.out.println("");
-		System.out.println("Losers are: ");
-		
-		for(String r : losers)
+		if(!losers.isEmpty()) // If there are losers show them...
 		{
-			System.out.println(r);
+			System.out.println("");
+			System.out.println("Losers are: ");
+		
+			for(String r : losers)
+			{
+				System.out.println(r);
+			}
 		}
 	}
 	
