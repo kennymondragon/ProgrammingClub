@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-class BlackJackGame
+public class BlackJackGame
 {
 	public static void main(String[] args)
 	{
