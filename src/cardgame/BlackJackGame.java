@@ -1,4 +1,4 @@
-//package cardgame;
+package cardgame;
 //Ben//Ben Olson
 
 //PC
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-class BlackJackGame
+public class BlackJackGame
 {
 	public static void main(String[] args)
 	{
@@ -38,45 +38,35 @@ class BlackJackGame
 		for (int i = 0; i <=(playerNum); i++)
 		{
 			players.add(new Player());
-			dealCardToPlayer(theDeck, players.get(i),i);
-			dealCardToPlayer(theDeck, players.get(i),i);
+			dealCardToPlayer(theDeck, players.get(i));
+			dealCardToPlayer(theDeck, players.get(i));
 		}
 
 		System.out.println("");
 		System.out.println("\nThe deck has been shuffled, the players have been readied. Lets Play!");
 		System.out.println("Rules are simple, Play to 21. Go over and you bust, go under and you might lose!");
 		System.out.println("Good Luck and Have Fun!");
-
-		//for loop to run through players and deal cards
-		/*
-		for(int i = players.size()-1; i>=0; i--)
-		{
-			theDeck.dealCard(players.get(i));
-			theDeck.dealCard(players.get(i));
-		}
-		*/
 		
 		System.out.println();
 		
 		System.out.println("Dealer:");
-		players.get(0).printHand();
-	
+		System.out.println(players.get(0).hand.get(0));
+		System.out.println("* Hidden Card *");
+		System.out.println("--------------------------------------");
+		
 		for(int i=players.size()-1;i>0;i--)
 		{
 			//for loop cycles through players top down
 			//because dealer is position zero
-			for(int j = 0; j < 20; j++)
-				System.out.println("\n");
 			
-			//if ((i+1) < players.size() && players.get(i + 1).getIsOut())
-				//System.out.println("Player " + (i+1) + "  Busted \n\n");
+			if ((i+1) < players.size() && players.get(i + 1).getIsOut())
+				System.out.println("Player " + (i+1) + "  Busted \n\n");
 
 			cmd = " ";
 			while((!cmd.equals("stand")) && (!cmd.equals("bust")))
 			{
 				System.out.println();
 				System.out.println("Player "+ i +" Please select either Hit or Stand by typing H or S.");
-				System.out.println("Player "+i+"'s Hand value is: " + players.get(i).getHandValue());
 				System.out.println("Player "+ i + "'s Hand:");
 				players.get(i).printHand();
 				cmd = s.next();
@@ -87,7 +77,7 @@ class BlackJackGame
 						break;
 						
 					case "h":
-						cmd = dealCardToPlayer(theDeck, players.get(i),i);
+						cmd = dealCardToPlayer(theDeck, players.get(i));
 						break;
 						
 					case "S": 	
@@ -95,16 +85,13 @@ class BlackJackGame
 						break;
 						
 					case "H": 
-						cmd = dealCardToPlayer(theDeck, players.get(i),i);
+						cmd = dealCardToPlayer(theDeck, players.get(i));
 						break;
 						
 					default:
 						System.out.println("Invaild input...");
 						break;
-				}
-				
-				//System.out.println("Player "+i+"'s Hand value is: " + players.get(i).getHandValue());
-					
+				}	
 			}
 			//String var needs to be set back to a default after player while loop
 			System.out.println("Player "+i+"'s Hand is:");
@@ -121,7 +108,7 @@ class BlackJackGame
 		{
 			//deck.dealCard(players.get(0)); //deal a card to the dealer
 			//players.get(0).printHand(); //show the card
-			dealCardToPlayer(theDeck, players.get(0),0);
+			dealCardToPlayer(theDeck, players.get(0));
 
 		}
 		players.get(0).printHand(); //show the card
@@ -161,41 +148,47 @@ class BlackJackGame
 			System.out.println(r);
 		} // try to iterate through the arraylists
 		
-		System.out.println("");
-		System.out.println("Ties are: ");
-		
-		for(String r : tie)
+		if(!tie.isEmpty())
 		{
-			System.out.println(r);
+			System.out.println("");
+			System.out.println("Ties are: ");
+		
+			for(String r : tie)
+			{
+				System.out.println(r);
+			}
 		}
 		
-		System.out.println("");
-		System.out.println("Losers are: ");
-		
-		for(String r : losers)
+		if(!losers.isEmpty())
 		{
-			System.out.println(r);
+			System.out.println("");
+			System.out.println("Losers are: ");
+		
+			for(String r : losers)
+			{
+				System.out.println(r);
+			}
 		}
 	}
 	
-	public static String dealCardToPlayer(Deck deck, Player p,int i)
+	public static String dealCardToPlayer(Deck deck, Player p)
 	{
 		deck.dealCard(p);
+		// Bust check...
 		if(p.getHandValue()>21)
-		{	
-			if(i==0)
+		{
+			// Ace check and update...
+			for(Card c : p.getHand())
 			{
-				System.out.println("Dealer Busts!");
-				p.setisOut(true);
-				return "bust";
+				if(c.getFace() == "Ace")
+				{
+					p.setHandValue(p.getHandValue() - 10);
+					c.setValue(1);
+				}
 			}
-			else
-			{
-				System.out.println("Player " + i + " Busts!");
-				p.setisOut(true);
-				return "bust";
-			}
-			
+			System.out.println("You Bust!");
+			p.setisOut(true);
+			return "bust";
 		}
 		return " "; 
 	}

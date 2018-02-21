@@ -1,4 +1,4 @@
-//package cardgame;
+package cardgame;
 //Olson
 
 //PC
@@ -14,7 +14,7 @@ class Player
 	private float balance = 0;
 	private float bet = 0;
 	private boolean isOut = false;
-	public int handScore;
+	public String handScore;
 
 
 	
@@ -32,11 +32,14 @@ class Player
 	 */
 	void printHand()
 	{
+		
 		//runs a for loop to cycle through cards in hand to print
 		for(int i=0;i<hand.size();i++)
 		{
 			System.out.println(hand.get(i));
 		}
+		System.out.println("Hand value is: " + getHandValue());
+		System.out.println("--------------------------------------");
 	}
 	
 	/**
@@ -58,7 +61,7 @@ class Player
 	}
 	
 	/**
-	 * Get Balance of Player, whats left of their "purse"
+	 * Get Balance of Player, what's left of their "purse"
 	 * @return float Balance
 	 */
 	float getBalance()
@@ -76,22 +79,12 @@ class Player
 	}
 	
 	/**
-	 * Is player still in game
+	 * 
 	 * @return
 	 */
 	boolean getIsOut()
 	{
 		return isOut;
-	}
-	/**
-	 * Set players hnad score
-	 * @param a the incoming string score
-	 */
-	void setHandScore(String a)
-	{
-		int score=0;
-		//enum handValues = {"High Card", "Pair", "TwoPair", "Three of a Kind", "Straight", "Flush", "Full House", "Four of a Kind", "Royal Flush"};
-		handScore = score;
 	}
 	
 	/**
@@ -113,7 +106,17 @@ class Player
 	}
 	
 	/**
-	 * kenny function
+	 * Set new hand value...
+	 * @param new hand value
+	 */
+	void setHandValue(int a)
+	{
+		handValue = a;
+	}
+	
+	/**
+	 * kenny function <-- ??? 
+	 * sets players play state...
 	 * @param newbool
 	 */
 	void setisOut(boolean newbool)
@@ -123,6 +126,7 @@ class Player
 	
 	/**
 	 * kenny function
+	 * Toggles Player Play state
 	 */
 	void flipisOut()
 	{
