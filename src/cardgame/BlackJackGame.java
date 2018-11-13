@@ -1,4 +1,4 @@
-package cardgame;
+//package cardgame;
 //Ben//Ben Olson
 
 //PC
@@ -59,8 +59,7 @@ public class BlackJackGame
 			//for loop cycles through players top down
 			//because dealer is position zero
 			
-			if ((i+1) < players.size() && players.get(i + 1).getIsOut())
-				System.out.println("Player " + (i+1) + "  Busted \n\n");
+			
 
 			cmd = " ";
 			while((!cmd.equals("stand")) && (!cmd.equals("bust")))
@@ -96,6 +95,10 @@ public class BlackJackGame
 			//String var needs to be set back to a default after player while loop
 			System.out.println("Player "+i+"'s Hand is:");
 			players.get(i).printHand();
+			
+			if (players.get(i).getIsOut())
+				System.out.println("Player " + (i+1) + "  Busted \n\n");
+			
 			cmd = " ";
 		}
 		
@@ -186,7 +189,7 @@ public class BlackJackGame
 					c.setValue(1);
 				}
 			}
-			System.out.println("You Bust!");
+			//System.out.println("You Bust!");
 			p.setisOut(true);
 			return "bust";
 		}

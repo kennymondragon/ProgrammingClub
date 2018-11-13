@@ -398,17 +398,41 @@ class texas {
 	}
 
 	/**
-	 * Determines if player has a Flush Straight Flush: Five cards in numerical
-	 * order, all of identical suits. In the event of a tie: Highest rank at the
+	 * Determines if player has a Flush.
+	 * Straight Flush: Five cards in (bi)numerical
+	 * order, all of identical suit. In the event of a tie: Highest rank at the
 	 * top of the sequence wins.
 	 * 
 	 * @param p
-	 *            player containing their hand
+	 *            player object containing their hand
 	 * @param community
 	 *            the cards available to all players
 	 */
-	static void flush(ArrayList<Card> hand) {
+	static void flush(ArrayList<Card> hand)
+	{
+		ArrayList<Card> hand = new ArrayList<Card>(community);// new
+																// ArrayList<Card>;
+		for (Card j : p.getHand())
+			hand.add(j);
+		Collections.sort(hand);
 
+		if ((hand.get(1).getValue() - hand.get(0).getValue()) == 1)
+			if ((hand.get(2).getValue() - hand.get(1).getValue()) == 1)
+				if ((hand.get(3).getValue() - hand.get(2).getValue()) == 1)
+					if ((hand.get(4).getValue() - hand.get(3).getValue()) == 1)
+						flush(hand);
+
+		if ((hand.get(2).getValue() - hand.get(1).getValue()) == 1)
+			if ((hand.get(3).getValue() - hand.get(2).getValue()) == 1)
+				if ((hand.get(4).getValue() - hand.get(3).getValue()) == 1)
+					if ((hand.get(5).getValue() - hand.get(4).getValue()) == 1)
+						flush(hand);
+
+		if ((hand.get(3).getValue() - hand.get(2).getValue()) == 1)
+			if ((hand.get(4).getValue() - hand.get(3).getValue()) == 1)
+				if ((hand.get(5).getValue() - hand.get(4).getValue()) == 1)
+					if ((hand.get(6).getValue() - hand.get(5).getValue()) == 1)
+						flush(hand);
 	}
 
 	/**
