@@ -40,7 +40,7 @@ class GameServer
 		switch(choice)
 		{
 			case 1: BlackJackGame.Game();
-			case 2: //texas.Game();
+			case 2: texas.Game();
 		};
 			
 	}

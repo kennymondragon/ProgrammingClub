@@ -46,11 +46,8 @@ class texas {
 		deck.shuffleDeck();
 
 		deck.dealCard(player);
-		burnpile.add(deck.getCard());
 		deck.dealCard(dealer);
-		burnpile.add(deck.getCard());
 		deck.dealCard(player);
-		burnpile.add(deck.getCard());
 		deck.dealCard(dealer);
 		
 		
@@ -58,10 +55,9 @@ class texas {
 		Scanner s = new Scanner(System.in);
 		String input;
 		
-		community.add(deck.getCard());
 		burnpile.add(deck.getCard());
 		community.add(deck.getCard());
-		burnpile.add(deck.getCard());
+		community.add(deck.getCard());
 		community.add(deck.getCard());
 		
 		
@@ -70,7 +66,7 @@ class texas {
 		{
 			System.out.println(c);
 		}
-		System.out.println("Would you like to bet or fold?");
+		System.out.println("Would you like to call, raise or fold?");
 		input = s.nextLine();
 		
 		//if statement the following for fold right away, putting isout at true
@@ -93,8 +89,8 @@ class texas {
 			}
 		}
 		
-		
-		while(player.getIsOut() == false)
+		boolean flag = false;
+		while((player.getIsOut() == false)||(flag == false))
 		{
 			/*System.out.println("Your Cards:");
 			for(Card c : player.hand)
@@ -107,23 +103,30 @@ class texas {
 				System.out.println(c);
 			}
 		
-			System.out.println("Would you like to bet or fold?");
+			System.out.println("Would you like to call, raise or fold?");
 			input = s.nextLine();
 			switch(input)
 			{
-				case "b":	
+				case "c" :	
+					community.add(deck.getCard()); 
+					break ;
+				case "C" :	
 					community.add(deck.getCard());
 					break;
 					
+				case "r":
+					community.add(deck.getCard());
+					break;
+				
+				case "R":
+					community.add(deck.getCard());
+					break;	
+				
 				case "f":
 					player.setisOut(true);
-					break;
-					
-				case "B": 	
-					community.add(deck.getCard());
-					break;
-					
-				case "F": 
+					break;		
+				
+				case "F":
 					player.setisOut(true);
 					break;
 						
@@ -131,6 +134,8 @@ class texas {
 					System.out.println("Invalid input...");
 					break;
 			}
+			if(community.size() == 5)
+				flag = true;
 		}
 
 
@@ -371,29 +376,29 @@ class texas {
 	 * @return false if no straight
 	 */
 	static void straight(Player p, ArrayList<Card> community) {
-		ArrayList<Card> hand = new ArrayList<Card>(community);// new
+		ArrayList<Card> temp = new ArrayList<Card>(community);// new
 																// ArrayList<Card>;
 		for (Card j : p.getHand())
-			hand.add(j);
-		Collections.sort(hand);
+			temp.add(j);
+		Collections.sort(temp);
 
-		if ((hand.get(1).getValue() - hand.get(0).getValue()) == 1)
-			if ((hand.get(2).getValue() - hand.get(1).getValue()) == 1)
-				if ((hand.get(3).getValue() - hand.get(2).getValue()) == 1)
-					if ((hand.get(4).getValue() - hand.get(3).getValue()) == 1)
-						flush(hand);
+		if ((temp.get(1).getValue() - temp.get(0).getValue()) == 1)
+			if ((temp.get(2).getValue() - temp.get(1).getValue()) == 1)
+				if ((temp.get(3).getValue() - temp.get(2).getValue()) == 1)
+					if ((temp.get(4).getValue() - temp.get(3).getValue()) == 1)
+						flush(p,temp);
 
-		if ((hand.get(2).getValue() - hand.get(1).getValue()) == 1)
-			if ((hand.get(3).getValue() - hand.get(2).getValue()) == 1)
-				if ((hand.get(4).getValue() - hand.get(3).getValue()) == 1)
-					if ((hand.get(5).getValue() - hand.get(4).getValue()) == 1)
-						flush(hand);
+		if ((temp.get(2).getValue() - temp.get(1).getValue()) == 1)
+			if ((temp.get(3).getValue() - temp.get(2).getValue()) == 1)
+				if ((temp.get(4).getValue() - temp.get(3).getValue()) == 1)
+					if ((temp.get(5).getValue() - temp.get(4).getValue()) == 1)
+						flush(p,temp);
 
-		if ((hand.get(3).getValue() - hand.get(2).getValue()) == 1)
-			if ((hand.get(4).getValue() - hand.get(3).getValue()) == 1)
-				if ((hand.get(5).getValue() - hand.get(4).getValue()) == 1)
-					if ((hand.get(6).getValue() - hand.get(5).getValue()) == 1)
-						flush(hand);
+		if ((temp.get(3).getValue() - temp.get(2).getValue()) == 1)
+			if ((temp.get(4).getValue() - temp.get(3).getValue()) == 1)
+				if ((temp.get(5).getValue() - temp.get(4).getValue()) == 1)
+					if ((temp.get(6).getValue() - temp.get(5).getValue()) == 1)
+						flush(p,temp);
 
 	}
 
@@ -408,31 +413,31 @@ class texas {
 	 * @param community
 	 *            the cards available to all players
 	 */
-	static void flush(ArrayList<Card> hand)
+	static void flush(Player p, ArrayList<Card> community)
 	{
-		ArrayList<Card> hand = new ArrayList<Card>(community);// new
+		ArrayList<Card> temp = new ArrayList<Card>(community);// new
 																// ArrayList<Card>;
 		for (Card j : p.getHand())
-			hand.add(j);
-		Collections.sort(hand);
+			temp.add(j);
+		Collections.sort(temp);
 
-		if ((hand.get(1).getValue() - hand.get(0).getValue()) == 1)
-			if ((hand.get(2).getValue() - hand.get(1).getValue()) == 1)
-				if ((hand.get(3).getValue() - hand.get(2).getValue()) == 1)
-					if ((hand.get(4).getValue() - hand.get(3).getValue()) == 1)
-						flush(hand);
+		if ((temp.get(1).getValue() - temp.get(0).getValue()) == 1)
+			if ((temp.get(2).getValue() - temp.get(1).getValue()) == 1)
+				if ((temp.get(3).getValue() - temp.get(2).getValue()) == 1)
+					if ((temp.get(4).getValue() - temp.get(3).getValue()) == 1)
+						flush(p,temp);
 
-		if ((hand.get(2).getValue() - hand.get(1).getValue()) == 1)
-			if ((hand.get(3).getValue() - hand.get(2).getValue()) == 1)
-				if ((hand.get(4).getValue() - hand.get(3).getValue()) == 1)
-					if ((hand.get(5).getValue() - hand.get(4).getValue()) == 1)
-						flush(hand);
+		if ((temp.get(2).getValue() - temp.get(1).getValue()) == 1)
+			if ((temp.get(3).getValue() - temp.get(2).getValue()) == 1)
+				if ((temp.get(4).getValue() - temp.get(3).getValue()) == 1)
+					if ((temp.get(5).getValue() - temp.get(4).getValue()) == 1)
+						flush(p,temp);
 
-		if ((hand.get(3).getValue() - hand.get(2).getValue()) == 1)
-			if ((hand.get(4).getValue() - hand.get(3).getValue()) == 1)
-				if ((hand.get(5).getValue() - hand.get(4).getValue()) == 1)
-					if ((hand.get(6).getValue() - hand.get(5).getValue()) == 1)
-						flush(hand);
+		if ((temp.get(3).getValue() - temp.get(2).getValue()) == 1)
+			if ((temp.get(4).getValue() - temp.get(3).getValue()) == 1)
+				if ((temp.get(5).getValue() - temp.get(4).getValue()) == 1)
+					if ((temp.get(6).getValue() - temp.get(5).getValue()) == 1)
+						flush(p,temp);
 	}
 
 	/**
