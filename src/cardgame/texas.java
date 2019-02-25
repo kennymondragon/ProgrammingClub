@@ -1,6 +1,6 @@
 //package cardgame;
 
-//Programming Club 2017
+//Normandale Programming Club 2017
 //texas holdem style poker game
 
 
@@ -162,10 +162,10 @@ class texas {
 	 *            Array of community cards
 	 */
 	static void scorePlayer(Player p, ArrayList<Card> community) {
-		ArrayList<Card> hand = new ArrayList<Card>(community);
+		ArrayList<Card> hand = new ArrayList<Card>(community); // creates scoring hand from community dealt cards
 		for (Card i : p.getHand())
-			hand.add(i);
-		Collections.sort(hand);
+			hand.add(i); //add players hand to scoring hand
+		Collections.sort(hand); //sort it
 
 		// Making arrays of each suit
 		ArrayList<Card> clubs = new ArrayList<Card>();
