@@ -41,6 +41,8 @@ class GameServer
 		{
 			case 1: BlackJackGame.Game();
 			case 2: texas.Game();
+			//case 3: Cribbage.Game();
+			//case 4: 3-Card-Poker.Game();
 		};
 			
 	}
