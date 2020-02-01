@@ -97,7 +97,7 @@ public class BlackJackGame
 			players.get(i).printHand();
 			
 			if (players.get(i).getIsOut())
-				System.out.println("Player " + (i+1) + "  Busted \n\n");
+				System.out.println("Player " + (i) + "  Busted \n\n");
 			
 			cmd = " ";
 		}
